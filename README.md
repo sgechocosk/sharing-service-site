@@ -1,2 +1,2 @@
-起動コマンド ./mvnw spring-boot:run
+起動コマンド ./gradlew bootRun
 ログイン http://localhost:8080/login
