@@ -1,8 +1,8 @@
 ---
-name: 'Issue: Template'
-about: Suggest an idea for this project
+name: Issueテンプレート
+about: 新しい機能や修正を提案する
 title: ''
-labels: ''
+labels: enhancement
 assignees: ''
 
 ---
