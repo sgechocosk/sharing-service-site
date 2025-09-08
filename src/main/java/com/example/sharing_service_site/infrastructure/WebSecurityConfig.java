@@ -15,11 +15,11 @@ public class WebSecurityConfig {
   @Bean
   public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
     http.authorizeHttpRequests(auth -> auth
-      .requestMatchers("/login", "/css/**").permitAll()
+      .requestMatchers("/login", "/css/**", "/images/**").permitAll()
       // .requestMatchers("/home").hasRole("USER") // USERロールの定義不備
       .anyRequest().authenticated())
     .formLogin(login -> login
-      // .loginPage("/login") // 作成したlogin.htmlを表示
+      .loginPage("/login")
       .defaultSuccessUrl("/home")
       .permitAll())
     .logout(logout -> logout
