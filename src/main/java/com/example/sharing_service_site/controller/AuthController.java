@@ -19,6 +19,7 @@ public class AuthController {
     model.addAttribute("fullName", userDetails.getFullName());
     model.addAttribute("company", userDetails.getCompanyName());
     model.addAttribute("department", userDetails.getDepartmentName());
+    model.addAttribute("roles", userDetails.getRoleName());
     return "home";
   }
 }

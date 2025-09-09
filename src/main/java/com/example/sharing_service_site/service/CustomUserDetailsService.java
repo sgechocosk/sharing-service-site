@@ -1,7 +1,5 @@
 package com.example.sharing_service_site.service;
 
-import java.util.ArrayList;
-
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -26,7 +24,7 @@ public class CustomUserDetailsService implements UserDetailsService {
     return new CustomUserDetails(
         user.getEmployeeNumber(),
         user.getPassword(),
-        new ArrayList<>(),
+        user.getRoles(),
         user.getFullName(),
         user.getCompany(),
         user.getDepartment());
