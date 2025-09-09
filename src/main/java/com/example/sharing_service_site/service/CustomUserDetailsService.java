@@ -2,7 +2,6 @@ package com.example.sharing_service_site.service;
 
 import java.util.ArrayList;
 
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -23,9 +22,13 @@ public class CustomUserDetailsService implements UserDetailsService {
     com.example.sharing_service_site.entity.User user = userRepository.findByEmployeeNumber(employeeNumber)
         .orElseThrow(() -> new UsernameNotFoundException("社員番号が存在しません: " + employeeNumber));
 
-    return new User(
+    // 利用することができるログイン中のユーザー情報
+    return new CustomUserDetails(
         user.getEmployeeNumber(),
         user.getPassword(),
-        new ArrayList<>());
+        new ArrayList<>(),
+        user.getFullName(),
+        user.getCompany(),
+        user.getDepartment());
   }
 }

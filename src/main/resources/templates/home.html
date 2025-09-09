@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>Home</title>
+  <title>Sharing Service Site</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -12,9 +12,13 @@
       color: #2c3e50;
     }
   </style>
+  <link rel="stylesheet" th:href="@{/css/header.css}">
 </head>
 <body>
-  <h1>ようこそ、<span th:text="${userName}">ユーザー名</span> さん！</h1>
+  <div th:replace="fragments/header :: header(${fullName})"></div>
+
+  <h1>ようこそ、<span th:text="${fullName}">ユーザー名</span> さん！</h1>
   <p>ホームページへようこそ。</p>
+  <p>所属：<span th:text="${company}">会社</span>・<span th:text="${department}">部署</span></p>
 </body>
 </html>

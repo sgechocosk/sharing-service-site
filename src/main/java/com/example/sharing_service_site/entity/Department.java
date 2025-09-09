@@ -11,6 +11,9 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
+/**
+ * 部署情報
+ */
 @Entity
 @Table(name = "departments")
 public class Department {
@@ -33,4 +36,6 @@ public class Department {
 
   @OneToMany(mappedBy = "department")
   private List<User> users;
+
+  public String getDepartmentName() { return departmentName; }
 }

@@ -9,6 +9,9 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
+/**
+ * 会社情報
+ */
 @Entity
 @Table(name = "companies")
 public class Company {
@@ -23,4 +26,6 @@ public class Company {
 
   @OneToMany(mappedBy = "company")
   private List<User> users;
+
+  public String getCompanyName() { return companyName; }
 }
