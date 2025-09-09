@@ -1,10 +1,11 @@
 package com.example.sharing_service_site.controller;
 
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import com.example.sharing_service_site.service.CustomUserDetails;
 
 @Controller
 public class AuthController {
@@ -14,8 +15,10 @@ public class AuthController {
   }
 
   @GetMapping("/home")
-  public String home(Model model, @AuthenticationPrincipal UserDetails userDetails) {
-    model.addAttribute("userName", userDetails.getUsername());
+  public String home(Model model, @AuthenticationPrincipal CustomUserDetails userDetails) {
+    model.addAttribute("fullName", userDetails.getFullName());
+    model.addAttribute("company", userDetails.getCompanyName());
+    model.addAttribute("department", userDetails.getDepartmentName());
     return "home";
   }
 }

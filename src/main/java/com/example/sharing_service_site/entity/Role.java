@@ -9,6 +9,9 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
+/**
+ * ロール情報
+ */
 @Entity
 @Table(name = "roles")
 public class Role {
@@ -16,7 +19,7 @@ public class Role {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long roleId;
 
-  private String roleName;
+  private String roleName; // リストで扱うため現在は実装無し
 
   @OneToMany(mappedBy = "role")
   private List<User> users;
