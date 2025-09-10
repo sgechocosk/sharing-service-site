@@ -1,0 +1,28 @@
+<div th:fragment="sidebar">
+  <nav class="sidebar" id="sidebar">
+    <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+    <ul>
+      <li>
+        <a th:href="@{/home}" title="ホーム"
+          ><span class="label">ホーム</span></a
+        >
+      </li>
+      <li>
+        <a th:href="@{/profile}" title="プロフィール"
+          ><span class="label">プロフィール</span></a
+        >
+      </li>
+      <li>
+        <a th:href="@{/settings}" title="設定"
+          ><span class="label">設定</span></a
+        >
+      </li>
+    </ul>
+  </nav>
+
+  <script>
+    function toggleSidebar() {
+      document.getElementById("sidebar").classList.toggle("expanded");
+    }
+  </script>
+</div>
