@@ -21,6 +21,8 @@ public class Role {
 
   private String roleName; // リストで扱うため現在は実装無し
 
-  @OneToMany(mappedBy = "role")
+  @OneToMany(mappedBy = "roles")
   private List<User> users;
+
+  public String getRoleName() { return roleName; }
 }
