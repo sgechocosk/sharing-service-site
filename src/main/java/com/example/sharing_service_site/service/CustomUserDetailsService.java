@@ -29,4 +29,12 @@ public class CustomUserDetailsService implements UserDetailsService {
         user.getCompany(),
         user.getDepartment());
   }
+
+  public void updatePassword(String employeeNumber, String encodedPassword) {
+    com.example.sharing_service_site.entity.User user = userRepository.findByEmployeeNumber(employeeNumber)
+        .orElseThrow(() -> new UsernameNotFoundException("社員番号が存在しません: " + employeeNumber));
+
+    user.setPassword(encodedPassword);
+    userRepository.save(user);
+  }
 }

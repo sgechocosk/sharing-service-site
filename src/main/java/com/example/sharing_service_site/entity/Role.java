@@ -19,7 +19,7 @@ public class Role {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long roleId;
 
-  private String roleName; // リストで扱うため現在は実装無し
+  private String roleName;
 
   @OneToMany(mappedBy = "roles")
   private List<User> users;
