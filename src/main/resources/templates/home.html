@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-  <meta charset="UTF-8">
-  <title>Sharing Service Site</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 40px;
-    }
-    h1 {
-      color: #2c3e50;
-    }
-  </style>
-  <link rel="stylesheet" th:href="@{/css/header.css}">
-</head>
-<body>
-  <div th:replace="fragments/header :: header(${fullName})"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sharing Service Site</title>
+    <link rel="stylesheet" th:href="@{/css/home.css}" />
+    <link rel="stylesheet" th:href="@{/css/header.css}" />
+    <link rel="stylesheet" th:href="@{/css/sidebar.css}" />
+  </head>
+  <body>
+    <div th:replace="fragments/header :: header(${fullName})"></div>
 
-  <h1>ようこそ、<span th:text="${fullName}">ユーザー名</span> さん！</h1>
-  <p>所属：<span th:text="${company}">会社</span>・<span th:text="${department}">部署</span></p>
-  <p><span th:text="${roles}">ロール</span></p>
-</body>
+    <div class="layout">
+      <div th:replace="fragments/sidebar :: sidebar"></div>
+
+      <div class="main-content">
+        <h1>ようこそ、<span th:text="${fullName}">ユーザー名</span> さん！</h1>
+        <p>
+          所属：<span th:text="${company}">会社</span>・
+          <span th:text="${department}">部署</span>
+        </p>
+        <p><span th:text="${roles}">ロール</span></p>
+      </div>
+    </div>
+  </body>
 </html>
