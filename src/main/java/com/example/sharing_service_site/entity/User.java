@@ -61,14 +61,14 @@ public class User {
   public String getEmployeeNumber() { return employeeNumber; }
   public String getPassword() { return password; }
   public String getFullName() { return fullName; }
-  public Set<Role> getRoles() { return roles; } // リストで扱う
+  public Set<Role> getRoles() { return roles; }
   public Company getCompany() { return company; }
   public Department getDepartment() { return department; }
 
   public void setEmployeeNumber(String employeeNumber) { this.employeeNumber = employeeNumber; }
   public void setPassword(String password) { this.password = password; }
   public void setFullName(String fullName) { this.fullName = fullName; }
-  public void setRoles(Set<Role> roles) { this.roles = roles; } // リストで扱う
+  public void setRoles(Set<Role> roles) { this.roles = roles; }
   public void setCompany(Company company) { this.company = company; }
   public void setDepartment(Department department) { this.department = department; }
 }

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sharing Service Site</title>
+    <link rel="stylesheet" th:href="@{/css/profile.css}" />
+    <link rel="stylesheet" th:href="@{/css/header.css}" />
+    <link rel="stylesheet" th:href="@{/css/sidebar.css}" />
+  </head>
+  <body>
+    <div th:replace="fragments/header :: header(${fullName})"></div>
+
+    <div class="layout">
+      <div th:replace="fragments/sidebar :: sidebar"></div>
+
+      <div class="main-content">
+        <h1>パスワードの変更</h1>
+
+        <form
+          th:action="@{/profile/password-edit}"
+          method="post"
+          class="profile-card"
+        >
+          <div class="profile-item">
+            <label class="profile-label" for="oldPassword">旧パスワード</label>
+            <input
+              type="password"
+              id="oldPassword"
+              name="oldPassword"
+              th:value="${oldPassword}"
+              autocomplete="current-password"
+              required
+            />
+          </div>
+          <span
+            th:if="${oldPasswordError}"
+            th:text="${oldPasswordError}"
+            class="field-error"
+          ></span>
+
+          <div class="profile-item">
+            <label class="profile-label" for="newPassword">新パスワード</label>
+            <input
+              type="password"
+              id="newPassword"
+              name="newPassword"
+              th:value="${newPassword}"
+              autocomplete="new-password"
+              required
+            />
+          </div>
+          <span
+            class="field-error"
+            th:if="${newPasswordError}"
+            th:text="${newPasswordError}"
+          ></span>
+
+          <div class="profile-item">
+            <label class="profile-label" for="confirmPassword"
+              >新パスワード(確認)</label
+            >
+            <input
+              type="password"
+              id="confirmPassword"
+              name="confirmPassword"
+              th:value="${confirmPassword}"
+              autocomplete="confirm-password"
+              required
+            />
+          </div>
+          <span
+            th:if="${confirmPasswordError}"
+            th:text="${confirmPasswordError}"
+            class="field-error"
+          ></span>
+
+          <div class="profile-actions">
+            <button type="submit" class="profile-button">確定</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sharing Service Site</title>
+    <link rel="stylesheet" th:href="@{/css/profile.css}" />
+    <link rel="stylesheet" th:href="@{/css/header.css}" />
+    <link rel="stylesheet" th:href="@{/css/sidebar.css}" />
+  </head>
+  <body>
+    <div th:replace="fragments/header :: header(${fullName})"></div>
+
+    <div class="layout">
+      <div th:replace="fragments/sidebar :: sidebar"></div>
+
+      <div class="main-content">
+        <h1>プロフィール</h1>
+
+        <div class="profile-card">
+          <div class="profile-item">
+            <span class="profile-label">従業員番号</span>
+            <span class="value" th:text="${username}">従業員番号</span>
+          </div>
+
+          <div class="profile-item">
+            <span class="profile-label">氏名</span>
+            <span class="value" th:text="${fullName}">氏名</span>
+          </div>
+
+          <div class="profile-item">
+            <span class="profile-label">会社</span>
+            <span class="value" th:text="${company}">会社</span>
+          </div>
+
+          <div class="profile-item">
+            <span class="profile-label">部署</span>
+            <span class="value" th:text="${department}">部署</span>
+          </div>
+
+          <div class="profile-item">
+            <span class="profile-label">ロール</span>
+            <span class="value" th:text="${role}">ロール</span>
+          </div>
+
+          <div class="profile-actions">
+            <a class="profile-button" th:href="@{/profile/edit}">
+              パスワードの変更
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

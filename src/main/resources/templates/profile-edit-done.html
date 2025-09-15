@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sharing Service Site</title>
+    <link rel="stylesheet" th:href="@{/css/profile.css}" />
+    <link rel="stylesheet" th:href="@{/css/header.css}" />
+    <link rel="stylesheet" th:href="@{/css/sidebar.css}" />
+  </head>
+  <body>
+    <div th:replace="fragments/header :: header(${fullName})"></div>
+
+    <div class="layout">
+      <div th:replace="fragments/sidebar :: sidebar"></div>
+
+      <div class="main-content">
+        <h1>パスワードの変更</h1>
+
+        <h2>パスワードの変更が完了しました。</h2>
+
+        <div class="profile-actions">
+          <a class="profile-button" th:href="@{/profile}">
+            プロフィールページに戻る
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

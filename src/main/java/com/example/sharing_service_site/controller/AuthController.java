@@ -22,4 +22,27 @@ public class AuthController {
     model.addAttribute("roles", userDetails.getRoleName());
     return "home";
   }
+
+  @GetMapping("/profile")
+  public String profile(Model model, @AuthenticationPrincipal CustomUserDetails userDetails) {
+    model.addAttribute("username", userDetails.getUsername());
+    model.addAttribute("fullName", userDetails.getFullName());
+    model.addAttribute("role", userDetails.getRoleName());
+    model.addAttribute("company", userDetails.getCompanyName());
+    model.addAttribute("department", userDetails.getDepartmentName());
+    return "/profile";
+  }
+
+  @GetMapping("/profile/edit")
+  public String profile_edit(Model model, @AuthenticationPrincipal CustomUserDetails userDetails) {
+    model.addAttribute("fullName", userDetails.getFullName());
+    model.addAttribute("password", userDetails.getPassword());
+    return "/profile-edit";
+  }
+
+  @GetMapping("/profile/edit/done")
+  public String profile_edit_done(Model model, @AuthenticationPrincipal CustomUserDetails userDetails) {
+    model.addAttribute("fullName", userDetails.getFullName());
+    return "/profile-edit-done";
+  }
 }
