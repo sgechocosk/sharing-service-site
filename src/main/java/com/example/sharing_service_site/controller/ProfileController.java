@@ -18,7 +18,7 @@ public class ProfileController {
   @Autowired
   private CustomUserDetailsService userDetailsService;
 
-  @PostMapping("/profile/password-edit")
+  @PostMapping("/profile/edit")
   public String changePassword(
         @AuthenticationPrincipal CustomUserDetails userDetails,
         @RequestParam String oldPassword,
@@ -42,6 +42,7 @@ public class ProfileController {
 
     if (!passwordEncoder.matches(oldPassword, userDetails.getPassword())) {
       model.addAttribute("oldPasswordError", "旧パスワードが間違っています。");
+      model.asMap().remove("oldPassword");
       hasError = true;
     }
 

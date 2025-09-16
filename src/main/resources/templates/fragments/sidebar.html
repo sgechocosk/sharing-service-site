@@ -1,6 +1,8 @@
 <div th:fragment="sidebar">
   <nav class="sidebar" id="sidebar">
-    <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+    <button class="toggle-btn" id="menuToggle" onclick="toggleSidebar()">
+      ☰
+    </button>
     <ul>
       <li>
         <a th:href="@{/home}" title="ホーム"
@@ -20,9 +22,5 @@
     </ul>
   </nav>
 
-  <script>
-    function toggleSidebar() {
-      document.getElementById("sidebar").classList.toggle("expanded");
-    }
-  </script>
+  <div class="overlay"></div>
 </div>
