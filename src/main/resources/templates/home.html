@@ -14,15 +14,22 @@
       <div th:replace="fragments/sidebar :: sidebar"></div>
 
       <div class="main-content">
-        <h1>ようこそ、<span th:text="${fullName}">ユーザー名</span> さん！</h1>
-        <p>
-          所属：<span th:text="${company}">会社</span>・
-          <span th:text="${department}">部署</span>
-        </p>
-        <p><span th:text="${roles}">ロール</span></p>
+        <h1 class="company-title" id="companyTitle" th:text="${companyName}">
+          会社名
+        </h1>
+
+        <div id="departmentContainer" class="department-container">
+          <div
+            th:each="dept : ${departments}"
+            class="department-card"
+            th:data-id="${dept.departmentId}"
+            th:text="${dept.departmentName}"
+          ></div>
+        </div>
       </div>
     </div>
 
+    <script th:src="@{/js/home.js}"></script>
     <script th:src="@{/js/sidebar.js}"></script>
   </body>
 </html>

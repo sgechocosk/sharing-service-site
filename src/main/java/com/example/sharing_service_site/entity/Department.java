@@ -37,5 +37,7 @@ public class Department {
   @OneToMany(mappedBy = "department")
   private List<User> users;
 
+  public Long getDepartmentId() { return departmentId; }
   public String getDepartmentName() { return departmentName; }
+  public Department getParent() { return parent; }
 }
