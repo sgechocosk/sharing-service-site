@@ -18,10 +18,12 @@
           会社名
         </h1>
 
-        <div id="departmentContainer" class="department-container">
+        <nav class="breadcrumb" id="breadcrumb"></nav>
+
+        <div class="department-container" id="departmentContainer">
           <div
-            th:each="dept : ${departments}"
             class="department-card"
+            th:each="dept : ${departments}"
             th:data-id="${dept.departmentId}"
             th:text="${dept.departmentName}"
           ></div>

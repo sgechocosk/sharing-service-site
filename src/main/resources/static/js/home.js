@@ -1,7 +1,56 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const container = document.getElementById("departmentContainer");
   const title = document.getElementById("companyTitle");
-  if (!container || !title) return;
+  const breadcrumb = document.getElementById("breadcrumb");
+  const container = document.getElementById("departmentContainer");
+
+  if (!breadcrumb || !container || !title) return;
+
+  const companyName = title.textContent.trim();
+  let breadcrumbStack = [{ id: null, name: companyName }];
+
+  function renderBreadcrumb() {
+    breadcrumb.innerHTML = "";
+
+    breadcrumbStack.forEach((item, index) => {
+      const span = document.createElement("span");
+      span.textContent = item.name;
+      span.classList.add("breadcrumb-item");
+
+      if (index < breadcrumbStack.length - 1) {
+        span.classList.add("breadcrumb-link");
+        span.addEventListener("click", async () => {
+          breadcrumbStack = breadcrumbStack.slice(0, index + 1);
+
+          title.textContent = item.name;
+
+          if (index === 0) {
+            await fetchDepartments(null);
+          } else {
+            await fetchDepartments(item.id);
+          }
+          renderBreadcrumb();
+        });
+      }
+
+      breadcrumb.appendChild(span);
+    });
+  }
+
+  async function fetchDepartments(departmentId = null) {
+    const url = departmentId ? `/departments/${departmentId}` : `/departments`;
+    const response = await fetch(url);
+    const departments = await response.json();
+
+    container.innerHTML = "";
+
+    departments.forEach((dept) => {
+      const div = document.createElement("div");
+      div.className = "department-card";
+      div.dataset.id = dept.departmentId;
+      div.textContent = dept.departmentName;
+      container.appendChild(div);
+    });
+  }
 
   container.addEventListener("click", async (event) => {
     const card = event.target.closest(".department-card");
@@ -9,6 +58,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const departmentId = card.dataset.id;
     const departmentName = card.textContent;
+
+    breadcrumbStack.push({ id: departmentId, name: departmentName });
+    renderBreadcrumb();
 
     title.textContent = departmentName;
 
@@ -25,4 +77,6 @@ document.addEventListener("DOMContentLoaded", () => {
       container.appendChild(div);
     });
   });
+
+  renderBreadcrumb();
 });
