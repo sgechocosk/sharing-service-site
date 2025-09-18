@@ -16,11 +16,7 @@
       <div class="main-content">
         <h1>パスワードの変更</h1>
 
-        <form
-          th:action="@{/profile/edit}"
-          method="post"
-          class="profile-card"
-        >
+        <form th:action="@{/profile/edit}" method="post" class="profile-card">
           <div class="profile-item">
             <label class="profile-label" for="oldPassword">旧パスワード</label>
             <input
@@ -35,7 +31,7 @@
           <span
             th:if="${oldPasswordError}"
             th:text="${oldPasswordError}"
-            class="field-error"
+            class="error-message"
           ></span>
 
           <div class="profile-item">
@@ -50,7 +46,7 @@
             />
           </div>
           <span
-            class="field-error"
+            class="error-message"
             th:if="${newPasswordError}"
             th:text="${newPasswordError}"
           ></span>
@@ -71,7 +67,7 @@
           <span
             th:if="${confirmPasswordError}"
             th:text="${confirmPasswordError}"
-            class="field-error"
+            class="error-message"
           ></span>
 
           <div class="profile-actions">
