@@ -1,27 +1,7 @@
-.department-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-}
-
-.department-card {
-  background: #f0f8ff;
-  padding: 1rem;
-  text-align: center;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-
-.department-card:hover {
-  background: #dbeeff;
-}
-
 .department-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
-  margin-top: 1rem;
 }
 
 .department-card {
@@ -36,5 +16,5 @@
 }
 
 .department-card:hover {
-  background-color: #e0f0ff;
+  background: #dbeeff;
 }

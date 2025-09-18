@@ -1,9 +1,3 @@
-.main-content h1 {
-  flex: 1;
-  padding-left: 1rem;
-  border-radius: 8px;
-}
-
 .main-content h2 {
   text-align: center;
   font-size: 1.5rem;
@@ -47,10 +41,10 @@
   color: #111;
 }
 
-.profile-container h1 {
-  margin-bottom: 1.5rem;
-  font-size: 2rem;
-  color: #111;
+.profile-item input {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
 }
 
 .profile-actions {
@@ -79,7 +73,7 @@
   transform: translateY(0);
 }
 
-.field-error {
+.error-message {
   color: red;
   font-size: 0.9em;
   margin-top: 4px;

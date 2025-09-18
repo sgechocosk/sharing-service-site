@@ -1,3 +1,6 @@
-起動コマンド ./gradlew bootRun
-ログイン http://localhost:8080/login
-MySQL mysql -u root -p
+# 起動コマンド
+./gradlew bootRun
+# ログインURL
+http://localhost:8080/login
+# MySQLの起動方法
+mysql -u root -p
