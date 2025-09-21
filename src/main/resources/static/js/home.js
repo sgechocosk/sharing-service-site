@@ -18,6 +18,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (index < breadcrumbStack.length - 1) {
         span.classList.add("breadcrumb-link");
+        if (index === 0) {
+          span.classList.add("breadcrumb-company");
+        }
         span.addEventListener("click", async () => {
           breadcrumbStack = breadcrumbStack.slice(0, index + 1);
 
