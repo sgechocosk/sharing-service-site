@@ -18,7 +18,7 @@
 
         <button type="submit">ログイン</button>
 
-        <div th:if="${param.error}" class="error-message">
+        <div class="error-message" th:if="${param.error}">
           従業員IDまたはパスワードが違います
         </div>
       </form>

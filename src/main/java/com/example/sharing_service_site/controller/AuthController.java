@@ -46,6 +46,12 @@ public class AuthController {
     return departmentService.getChildDepartments(id);
   }
 
+  @GetMapping("/departments")
+  @ResponseBody
+  public List<Department> getRootDepartments(@AuthenticationPrincipal CustomUserDetails userDetails) {
+    return departmentService.getRootDepartmentsByCompany(userDetails.getCompany());
+  }
+
   @GetMapping("/profile")
   public String profile(Model model, @AuthenticationPrincipal CustomUserDetails userDetails) {
     model.addAttribute("username", userDetails.getUsername());
