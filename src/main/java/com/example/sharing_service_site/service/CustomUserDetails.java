@@ -65,6 +65,7 @@ public class CustomUserDetails implements UserDetails {
           "閲覧のみ";
 }
 
+  public String getEmployeeNumber() { return employeeNumber; }
   public String getFullName() { return fullName; }
   public Company getCompany() { return company; }
   public String getCompanyName() { return company.getCompanyName(); }

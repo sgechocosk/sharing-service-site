@@ -5,6 +5,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import com.example.sharing_service_site.entity.User;
 import com.example.sharing_service_site.repository.UserRepository;
 
 @Service
@@ -36,5 +37,10 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     user.setPassword(encodedPassword);
     userRepository.save(user);
+  }
+
+  public User getUser(String employeeNumber) {
+    return userRepository.findByEmployeeNumber(employeeNumber)
+        .orElseThrow(() -> new UsernameNotFoundException("社員番号が存在しません: " + employeeNumber));
   }
 }
