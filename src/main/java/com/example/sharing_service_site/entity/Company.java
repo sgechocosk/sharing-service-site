@@ -27,5 +27,6 @@ public class Company {
   @OneToMany(mappedBy = "company")
   private List<User> users;
 
+  public Long getCompanyId() { return companyId; }
   public String getCompanyName() { return companyName; }
 }
