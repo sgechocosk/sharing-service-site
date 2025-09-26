@@ -21,7 +21,6 @@ public class DepartmentService {
    */
   public List<Department> getRootDepartmentsByCompany(Company company) {
     List<Department> allDepartments = departmentRepository.findByCompany(company);
-    // 親がnullの部署のみ返す
     return allDepartments.stream()
         .filter(d -> d.getParent() == null)
         .toList();
@@ -36,5 +35,14 @@ public class DepartmentService {
       throw new IllegalArgumentException("部署が見つかりません: id=" + parentDepartmentId);
     }
     return departmentRepository.findByParent(parentOpt.get());
+  }
+
+  /**
+   * 部署IDを指定して、その部署名を取得する
+   */
+  public String getDepartmentNameById(Long departmentId) {
+    return departmentRepository.findById(departmentId)
+        .map(Department::getDepartmentName)
+        .orElse(null);
   }
 }

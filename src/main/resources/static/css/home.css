@@ -1,3 +1,29 @@
+.company-header {
+  display: flex;
+  align-items: center;
+}
+
+.message-button {
+  display: inline-block;
+  padding: 0.3rem 0.8rem 0.5rem;
+  margin-left: 2rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  text-decoration: none;
+  color: black;
+  background: white;
+  font-size: 2rem;
+}
+.message-button:hover {
+  background: #eee;
+  transform: translateY(-2px);
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.message-button:active {
+  transform: translateY(0);
+}
+
 .breadcrumb {
   position: relative;
   display: flex;

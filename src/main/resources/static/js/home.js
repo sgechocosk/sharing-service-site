@@ -2,11 +2,21 @@ document.addEventListener("DOMContentLoaded", () => {
   const title = document.getElementById("companyTitle");
   const breadcrumb = document.getElementById("breadcrumb");
   const container = document.getElementById("departmentContainer");
+  const departmentInput = document.getElementById("selectedDepartmentId");
 
-  if (!breadcrumb || !container || !title) return;
+  if (!title || !breadcrumb || !container) return;
 
   const companyName = title.textContent.trim();
   let breadcrumbStack = [{ id: null, name: companyName }];
+
+  function updateDepartmentInput() {
+    const selectedDepartment = breadcrumbStack[breadcrumbStack.length - 1];
+    departmentInput.value = selectedDepartment.id || "";
+    const messageButton = document.getElementById("messageButton");
+    if (messageButton) {
+      messageButton.style.display = selectedDepartment.id ? "inline" : "none";
+    }
+  }
 
   function renderBreadcrumb() {
     breadcrumb.innerHTML = "";
@@ -37,6 +47,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
       breadcrumb.appendChild(span);
     });
+
+    updateDepartmentInput();
   }
 
   async function fetchDepartments(departmentId = null) {

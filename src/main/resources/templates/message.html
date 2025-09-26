@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sharing Service Site</title>
+    <link rel="stylesheet" th:href="@{/css/message.css}" />
+    <link rel="stylesheet" th:href="@{/css/header.css}" />
+    <link rel="stylesheet" th:href="@{/css/sidebar.css}" />
+  </head>
+  <body>
+    <div th:replace="fragments/header :: header(${fullName})"></div>
+
+    <div class="layout">
+      <div th:replace="fragments/sidebar :: sidebar"></div>
+
+      <div class="main-content">
+        <h1
+          class="department-title"
+          id="departmentTitle"
+          th:text="${selectedDepartmentName} + の掲示板"
+        >
+          部署名の掲示板
+        </h1>
+
+        <ul class="message-list">
+          <li class="message-card" th:each="msg : ${messages}">
+            <div class="message-header">
+              <b class="message-name" th:text="${msg.authorName}">名前</b>
+              <span class="message-date" th:text="${msg.createdAtText}"
+                >日時</span
+              >
+            </div>
+            <div class="message-content" th:text="${msg.content}">
+              メッセージ
+            </div>
+          </li>
+        </ul>
+
+        <div class="message-input-area">
+          <form class="message-form" th:action="@{/message/send}" method="post">
+            <input
+              type="hidden"
+              th:name="${_csrf.parameterName}"
+              th:value="${_csrf.token}"
+            />
+            <input
+              type="hidden"
+              name="departmentId"
+              th:value="${departmentId}"
+            />
+            <textarea
+              name="content"
+              placeholder="メッセージ"
+              required
+            ></textarea>
+            <button type="submit">送信</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script th:src="@{/js/message.js}"></script>
+    <script th:src="@{/js/sidebar.js}"></script>
+  </body>
+</html>
