@@ -53,7 +53,6 @@ public class ProfileController {
 
     String encodedPassword = passwordEncoder.encode(newPassword);
     userDetailsService.updatePassword(userDetails.getUsername(), encodedPassword);
-
     return "redirect:/profile/edit/done";
   }
 }

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sharing Service Site</title>
+    <link rel="stylesheet" th:href="@{/css/header.css}" />
+    <link rel="stylesheet" th:href="@{/css/error.css}" />
+  </head>
+  <body>
+    <div th:replace="fragments/header :: header(${fullName})"></div>
+
+    <div class="error-container">
+      <h1 class="error-status" th:text="${status}">404</h1>
+
+      <h2 class="error-title" th:switch="${status}">
+        <span th:case="404">ページが見つかりませんでした。</span>
+        <span th:case="500">サーバーエラーが発生しました。</span>
+        <span th:case="*">エラーが発生しました。</span>
+      </h2>
+
+      <p class="error-subtitle">
+        お探しのページは削除されたか、移動した可能性があります。
+      </p>
+
+      <a th:href="@{/home}" class="home-link">
+        <span class="home-button">ホームに戻る</span>
+      </a>
+    </div>
+  </body>
+</html>
