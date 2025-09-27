@@ -63,7 +63,7 @@ public class CustomUserDetails implements UserDetails {
             .map(Role::getRoleName)
             .anyMatch("USER"::equals) ? "ユーザー" :
           "閲覧のみ";
-}
+  }
 
   public String getEmployeeNumber() { return employeeNumber; }
   public String getFullName() { return fullName; }

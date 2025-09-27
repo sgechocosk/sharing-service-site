@@ -16,7 +16,7 @@ public class WebSecurityConfig {
   public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
     http.authorizeHttpRequests(auth -> auth
       .requestMatchers("/login", "/css/**", "/images/**").permitAll()
-      // .requestMatchers("/home").hasRole("USER") // 制限ページの設定不足
+      .requestMatchers("/settings/user").hasRole("ADMIN")
       .anyRequest().authenticated())
     .formLogin(login -> login
       .loginPage("/login")

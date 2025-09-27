@@ -1,5 +1,6 @@
 package com.example.sharing_service_site.repository;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -18,4 +19,11 @@ public interface UserRepository extends JpaRepository<User, Long> {
    * @return 該当するユーザー情報
    */
   Optional<User> findByEmployeeNumber(String employeeNumber);
+
+  /**
+   * 会社IDを基にユーザー情報を検索する
+   * @param companyId 検索対象の会社ID
+   * @return 該当するユーザー情報のリスト
+   */
+  List<User> findByCompanyCompanyId(Long companyId);
 }

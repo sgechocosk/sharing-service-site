@@ -58,12 +58,26 @@ public class User {
   @JoinColumn(name = "department_id", nullable = false)
   private Department department;
 
+  public Long getUserId() { return UserId; }
   public String getEmployeeNumber() { return employeeNumber; }
   public String getPassword() { return password; }
   public String getFullName() { return fullName; }
   public Set<Role> getRoles() { return roles; }
   public Company getCompany() { return company; }
   public Department getDepartment() { return department; }
+  public String getRoleName() {
+    if (roles == null || roles.isEmpty()) {
+        return "閲覧のみ";
+    }
+
+    return roles.stream()
+            .map(Role::getRoleName)
+            .anyMatch("ADMIN"::equals) ? "管理者" :
+          roles.stream()
+            .map(Role::getRoleName)
+            .anyMatch("USER"::equals) ? "ユーザー" :
+          "閲覧のみ";
+  }
 
   public void setEmployeeNumber(String employeeNumber) { this.employeeNumber = employeeNumber; }
   public void setPassword(String password) { this.password = password; }

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sharing Service Site</title>
+    <link rel="stylesheet" th:href="@{/css/settings.css}" />
+    <link rel="stylesheet" th:href="@{/css/header.css}" />
+    <link rel="stylesheet" th:href="@{/css/sidebar.css}" />
+  </head>
+  <body>
+    <div th:replace="fragments/header :: header(${fullName})"></div>
+
+    <div class="layout">
+      <div th:replace="fragments/sidebar :: sidebar"></div>
+
+      <div class="main-content">
+        <h1>設定</h1>
+
+        <div class="settings-card">
+          <p>現在設定できる項目は存在していません。</p>
+
+          <div class="settings-actions" sec:authorize="hasRole('ADMIN')">
+            <a class="settings-button" th:href="@{/settings/user}">
+              ユーザー管理
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script th:src="@{/js/sidebar.js}"></script>
+  </body>
+</html>

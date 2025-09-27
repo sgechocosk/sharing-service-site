@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sharing Service Site</title>
+    <link rel="stylesheet" th:href="@{/css/settings.css}" />
+    <link rel="stylesheet" th:href="@{/css/header.css}" />
+    <link rel="stylesheet" th:href="@{/css/sidebar.css}" />
+  </head>
+  <body>
+    <div th:replace="fragments/header :: header(${fullName})"></div>
+
+    <div class="layout">
+      <div th:replace="fragments/sidebar :: sidebar"></div>
+
+      <div class="main-content">
+        <h1>ユーザー管理</h1>
+        <div class="user-container" id="userContainer">
+          <div class="user-header">
+            <span class="header-item">氏名</span>
+            <span class="header-item">従業員ID</span>
+            <span class="header-item">部署</span>
+            <span class="header-item">ロール</span>
+          </div>
+
+          <div class="user-row" th:each="user : ${users}">
+            <span class="user-item" th:text="${user.fullName}"></span>
+            <span class="user-item" th:text="${user.employeeNumber}"></span>
+            <span
+              class="user-item"
+              th:text="${user.department.departmentName}"
+            ></span>
+
+            <form
+              class="role-form"
+              th:action="@{/settings/user/update}"
+              method="post"
+            >
+              <input type="hidden" name="userId" th:value="${user.userId}" />
+              <select class="role-select" name="role">
+                <option
+                  value="USER"
+                  th:selected="${user.roleName == 'ユーザー'}"
+                >
+                  ユーザー
+                </option>
+                <option
+                  value="ADMIN"
+                  th:selected="${user.roleName == '管理者'}"
+                >
+                  管理者
+                </option>
+                <option
+                  value="VIEWER"
+                  th:selected="${user.roleName == '閲覧のみ'}"
+                >
+                  閲覧のみ
+                </option>
+              </select>
+              <button class="save-role-btn" type="submit">変更</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script th:src="@{/js/sidebar.js}"></script>
+  </body>
+</html>

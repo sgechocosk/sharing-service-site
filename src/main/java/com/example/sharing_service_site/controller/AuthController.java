@@ -144,4 +144,31 @@ public class AuthController {
     model.addAttribute("fullName", userDetails.getFullName());
     return "/profile-edit-done";
   }
+
+  @GetMapping("/settings")
+  public String settings(Model model, @AuthenticationPrincipal CustomUserDetails userDetails) {
+    model.addAttribute("fullName", userDetails.getFullName());
+    return "/settings";
+  }
+
+  @GetMapping("/settings/user")
+  public String settingsUser(Model model, @AuthenticationPrincipal CustomUserDetails userDetails) {
+    model.addAttribute("fullName", userDetails.getFullName());
+    List<User> users = userDetailsService.getUsersByCompanyId(userDetails.getCompany().getCompanyId());
+    model.addAttribute("users", users);
+    return "/settings-user";
+  }
+
+  @PostMapping("/settings/user/update")
+  public String updateUserRole(@RequestParam Long userId,
+                              @RequestParam String role,
+                              RedirectAttributes redirectAttributes) {
+    try {
+      userDetailsService.updateUserRole(userId, role);
+      redirectAttributes.addFlashAttribute("success", "ユーザーのロールを更新しました。");
+    } catch (IllegalArgumentException ex) {
+      redirectAttributes.addFlashAttribute("error", ex.getMessage());
+    }
+    return "redirect:/settings/user";
+  }
 }
