@@ -3,6 +3,7 @@ package com.example.sharing_service_site.entity;
 import java.util.HashSet;
 import java.util.Set;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -26,20 +27,25 @@ public class User {
    */
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long UserId;
+  @Column(name = "user_id")
+  private Long userId;
 
   /**
    * 従業員番号。ユーザーを識別するユニークな情報として利用する。
    */
+  // DBではデフォルトがNULL許容なので、NOT NULLに変更する。以下同様
+  @Column(name = "employee_number", unique = true)
   private String employeeNumber;
   /**
    * パスワード。ハッシュ化された状態で保持され、認証に利用する。
    */
+  @Column(name = "password", nullable = false)
   private String password;
   
   /**
    * 表示名。表示のためだけに扱われる。
    */
+  @Column(name = "full_name")
   private String fullName;
 
   @ManyToMany(fetch = FetchType.EAGER)
@@ -58,7 +64,7 @@ public class User {
   @JoinColumn(name = "department_id", nullable = false)
   private Department department;
 
-  public Long getUserId() { return UserId; }
+  public Long getUserId() { return userId; }
   public String getEmployeeNumber() { return employeeNumber; }
   public String getPassword() { return password; }
   public String getFullName() { return fullName; }
@@ -69,7 +75,6 @@ public class User {
     if (roles == null || roles.isEmpty()) {
         return "閲覧のみ";
     }
-
     return roles.stream()
             .map(Role::getRoleName)
             .anyMatch("ADMIN"::equals) ? "管理者" :
