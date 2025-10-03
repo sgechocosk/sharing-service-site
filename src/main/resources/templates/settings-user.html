@@ -30,11 +30,11 @@
               class="user-item"
               th:text="${user.department.departmentName}"
             ></span>
-
             <form
               class="role-form"
               th:action="@{/settings/user/update}"
               method="post"
+              th:if="${user.fullName != fullName}"
             >
               <input type="hidden" name="userId" th:value="${user.userId}" />
               <select class="role-select" name="role">
@@ -59,6 +59,11 @@
               </select>
               <button class="save-role-btn" type="submit">変更</button>
             </form>
+            <span
+              class="user-item"
+              th:text="${user.roleName}"
+              th:unless="${user.fullName != fullName}"
+            ></span>
           </div>
         </div>
       </div>
