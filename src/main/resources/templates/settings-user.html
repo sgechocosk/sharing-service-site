@@ -66,9 +66,17 @@
             ></span>
           </div>
         </div>
+
+        <div
+          class="toast"
+          id="toast"
+          th:if="${success != null or error != null}"
+          th:text="${success != null ? success : error}"
+        ></div>
       </div>
     </div>
 
+    <script th:src="@{/js/settings.js}"></script>
     <script th:src="@{/js/sidebar.js}"></script>
   </body>
 </html>
