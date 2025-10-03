@@ -69,6 +69,7 @@ public class AuthController {
                         @AuthenticationPrincipal CustomUserDetails userDetails,
                         @RequestParam Long departmentId) {
     model.addAttribute("fullName", userDetails.getFullName());
+    model.addAttribute("roleName", userDetails.getRoleName());
     model.addAttribute("departmentId", departmentId);
 
     User user = userDetailsService.getUser(userDetails.getEmployeeNumber());
