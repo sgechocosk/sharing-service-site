@@ -22,7 +22,7 @@
           部署名の掲示板
         </h1>
 
-        <ul class="message-list">
+        <ul class="message-list" th:classappend="${roleName != '閲覧のみ'} ? ' message-list' : ' message-list-viewer'">
           <li class="message-card" th:each="msg : ${messages}">
             <div class="message-header">
               <b class="message-name" th:text="${msg.authorName}">名前</b>
@@ -36,7 +36,7 @@
           </li>
         </ul>
 
-        <div class="message-input-area">
+        <div class="message-input-area" th:if="${roleName != '閲覧のみ'}">
           <form class="message-form" th:action="@{/message/send}" method="post">
             <input
               type="hidden"
