@@ -19,10 +19,25 @@ public class MessageService {
   @Autowired
   private DepartmentRepository departmentRepository;
 
+  /**
+   * 部署IDを基にメッセージを取得する
+   * 
+   * @param departmentId 部署ID
+   * @return 該当するメッセージ一覧
+   */
   public List<Message> getMessagesByDepartmentId(Long departmentId) {
     return messageRepository.findByDepartmentDepartmentIdOrderByCreatedAtAsc(departmentId);
   }
 
+  /**
+   * メッセージを保存する
+   * 
+   * @param departmentId 部署ID
+   * @param author       投稿者ユーザー
+   * @param content      メッセージ内容
+   * @return 保存されたメッセージ
+   * @throws IllegalArgumentException 部署が見つからない場合
+   */
   public Message saveMessage(Long departmentId, User author, String content) {
     Department department = departmentRepository.findById(departmentId)
         .orElseThrow(() -> new IllegalArgumentException("部署が見つかりません: " + departmentId));

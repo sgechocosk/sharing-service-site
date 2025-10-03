@@ -15,11 +15,13 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.sharing_service_site.entity.Department;
 import com.example.sharing_service_site.entity.Message;
+import com.example.sharing_service_site.entity.Settings;
 import com.example.sharing_service_site.entity.User;
 import com.example.sharing_service_site.service.CustomUserDetails;
 import com.example.sharing_service_site.service.CustomUserDetailsService;
 import com.example.sharing_service_site.service.DepartmentService;
 import com.example.sharing_service_site.service.MessageService;
+import com.example.sharing_service_site.service.SettingsService;
 
 @Controller
 public class AuthController {
@@ -27,11 +29,13 @@ public class AuthController {
   private final CustomUserDetailsService userDetailsService;
   private final DepartmentService departmentService;
   private final MessageService messageService;
+  private final SettingsService settingsService;
 
-  public AuthController(DepartmentService departmentService, MessageService messageService, CustomUserDetailsService userDetailsService) {
+  public AuthController(DepartmentService departmentService, MessageService messageService, CustomUserDetailsService userDetailsService, SettingsService settingsService) {
     this.departmentService = departmentService;
     this.messageService = messageService;
     this.userDetailsService = userDetailsService;
+    this.settingsService = settingsService;
   }
 
   @GetMapping("/login")
@@ -148,6 +152,9 @@ public class AuthController {
   @GetMapping("/settings")
   public String settings(Model model, @AuthenticationPrincipal CustomUserDetails userDetails) {
     model.addAttribute("fullName", userDetails.getFullName());
+
+    Settings settings = settingsService.getSettingsByUserId(userDetails.getUserId());
+    model.addAttribute("settings", settings);
     return "/settings";
   }
 

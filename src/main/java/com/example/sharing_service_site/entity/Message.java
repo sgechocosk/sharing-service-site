@@ -20,6 +20,7 @@ import jakarta.persistence.Table;
 public class Message {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name = "message_id")
   private Long messageId;
 
   @ManyToOne(fetch = FetchType.LAZY)
@@ -30,13 +31,16 @@ public class Message {
   @JoinColumn(name = "user_id", nullable = false)
   private User author;
 
-  @Column(nullable = false, columnDefinition = "TEXT")
+  @Column(name = "content", nullable = false, columnDefinition = "TEXT")
   private String content;
 
+  @Column(name = "created_at", nullable = false, updatable = false)
   private LocalDateTime createdAt;
 
+  @Column(name = "updated_at")
   private LocalDateTime updatedAt;
 
+  @Column(name = "edited", nullable = false)
   private boolean edited = false;
 
   public Message() {}
@@ -49,7 +53,7 @@ public class Message {
     this.edited = false;
   }
 
-  public Long getId() { return messageId; }
+  public Long getMessageId() { return messageId; }
   public Department getDepartment() { return department; }
   public User getAuthor() { return author; }
   public String getContent() { return content; }

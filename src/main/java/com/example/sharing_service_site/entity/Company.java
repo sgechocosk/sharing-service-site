@@ -2,6 +2,7 @@ package com.example.sharing_service_site.entity;
 
 import java.util.List;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,8 +18,11 @@ import jakarta.persistence.Table;
 public class Company {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name = "company_id")
   private Long companyId;
 
+  // DBにはユニーク制約なし
+  @Column(name = "company_name", nullable = false, unique = true)
   private String companyName;
 
   @OneToMany(mappedBy = "company")
@@ -29,4 +33,6 @@ public class Company {
 
   public Long getCompanyId() { return companyId; }
   public String getCompanyName() { return companyName; }
+  public List<Department> getDepartments() { return departments; }
+  public List<User> getUsers() { return users; }
 }

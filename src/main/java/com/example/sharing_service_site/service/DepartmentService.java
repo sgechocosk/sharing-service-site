@@ -18,6 +18,9 @@ public class DepartmentService {
 
   /**
    * 会社名を指定して、ルート部署（親がnullの部署）を取得する
+   * 
+   * @param company 会社エンティティ
+   * @return ルート部署一覧
    */
   public List<Department> getRootDepartmentsByCompany(Company company) {
     List<Department> allDepartments = departmentRepository.findByCompany(company);
@@ -28,6 +31,10 @@ public class DepartmentService {
 
   /**
    * 部署IDを指定して、その子部署一覧を取得する
+   * 
+   * @param parentDepartmentId 親部署ID
+   * @return 子部署一覧
+   * @throws IllegalArgumentException 親部署が見つからない場合
    */
   public List<Department> getChildDepartments(Long parentDepartmentId) {
     Optional<Department> parentOpt = departmentRepository.findById(parentDepartmentId);
@@ -39,6 +46,9 @@ public class DepartmentService {
 
   /**
    * 部署IDを指定して、その部署名を取得する
+   * 
+   * @param departmentId 部署ID
+   * @return 部署名（部署が見つからない場合はnullを返す）
    */
   public String getDepartmentNameById(Long departmentId) {
     return departmentRepository.findById(departmentId)

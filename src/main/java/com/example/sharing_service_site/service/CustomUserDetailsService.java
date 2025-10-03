@@ -31,6 +31,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     // 利用することができるログイン中のユーザー情報
     return new CustomUserDetails(
+        user.getUserId(),
         user.getEmployeeNumber(),
         user.getPassword(),
         user.getRoles(),
