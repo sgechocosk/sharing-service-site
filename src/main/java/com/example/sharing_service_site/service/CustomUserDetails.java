@@ -13,6 +13,7 @@ import com.example.sharing_service_site.entity.Department;
 import com.example.sharing_service_site.entity.Role;
 
 public class CustomUserDetails implements UserDetails {
+  private final Long userId;
   private final String employeeNumber;
   private final String password;
   private final Set<Role> roles;
@@ -22,6 +23,7 @@ public class CustomUserDetails implements UserDetails {
 
   /**
    * 利用することができるログイン中のユーザー情報
+   * @param userId ユーザーID
    * @param employeeNumber 従業員番号
    * @param password パスワード
    * @param roles 権限(ロール)
@@ -29,7 +31,8 @@ public class CustomUserDetails implements UserDetails {
    * @param company 所属会社
    * @param department 所属部署
    */
-  public CustomUserDetails(String employeeNumber, String password, Set<Role> roles, String fullName, Company company, Department department) {
+  public CustomUserDetails(Long userId, String employeeNumber, String password, Set<Role> roles, String fullName, Company company, Department department) {
+      this.userId = userId;
       this.employeeNumber = employeeNumber;
       this.password = password;
       this.roles = roles;
@@ -65,6 +68,7 @@ public class CustomUserDetails implements UserDetails {
           "閲覧のみ";
   }
 
+  public Long getUserId() { return userId; }
   public String getEmployeeNumber() { return employeeNumber; }
   public String getFullName() { return fullName; }
   public Company getCompany() { return company; }

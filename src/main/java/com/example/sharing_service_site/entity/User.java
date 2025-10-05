@@ -26,7 +26,7 @@ public class User {
    */
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long UserId;
+  private Long userId;
 
   /**
    * 従業員番号。ユーザーを識別するユニークな情報として利用する。
@@ -58,7 +58,7 @@ public class User {
   @JoinColumn(name = "department_id", nullable = false)
   private Department department;
 
-  public Long getUserId() { return UserId; }
+  public Long getUserId() { return userId; }
   public String getEmployeeNumber() { return employeeNumber; }
   public String getPassword() { return password; }
   public String getFullName() { return fullName; }
@@ -69,7 +69,6 @@ public class User {
     if (roles == null || roles.isEmpty()) {
         return "閲覧のみ";
     }
-
     return roles.stream()
             .map(Role::getRoleName)
             .anyMatch("ADMIN"::equals) ? "管理者" :

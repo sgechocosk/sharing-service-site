@@ -17,7 +17,15 @@
         <h1>設定</h1>
 
         <div class="settings-card">
-          <p>現在設定できる項目は存在していません。</p>
+          <div class="settings-card">
+            <h2>ユーザー設定</h2>
+
+            <!-- 項目をテキストで表示 -->
+            <div th:each="setting : ${settings}">
+              <p>テーマカラー: <span th:text="${setting.themeColor}"></span></p>
+              <p>部署の並び順: <span th:text="${setting.departmentOrder}"></span></p>
+            </div>
+          </div>
 
           <div class="settings-actions" sec:authorize="hasRole('ADMIN')">
             <a class="settings-button" th:href="@{/settings/user}">
