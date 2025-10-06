@@ -22,13 +22,27 @@
           部署名の掲示板
         </h1>
 
-        <ul class="message-list" th:classappend="${roleName != '閲覧のみ'} ? ' message-list' : ' message-list-viewer'">
+        <ul
+          class="message-list"
+          th:classappend="${roleName != '閲覧のみ'} ? ' message-list' : ' message-list-viewer'"
+        >
           <li class="message-card" th:each="msg : ${messages}">
             <div class="message-header">
-              <b class="message-name" th:text="${msg.authorName}">名前</b>
-              <span class="message-date" th:text="${msg.createdAtText}"
-                >日時</span
-              >
+              <dib class="message-header-left">
+                <b class="message-name" th:text="${msg.author.fullName}"
+                  >名前</b
+                >
+                <b
+                  class="message-department"
+                  th:text="'- ' + ${msg.author.department.departmentName}"
+                  >部署名</b
+                >
+              </dib>
+              <dib class="message-header-right">
+                <span class="message-date" th:text="${msg.createdAtText}"
+                  >日時</span
+                >
+              </dib>
             </div>
             <div class="message-content" th:text="${msg.content}">
               メッセージ
@@ -59,7 +73,6 @@
       </div>
     </div>
 
-    <script th:src="@{/js/message.js}"></script>
     <script th:src="@{/js/sidebar.js}"></script>
   </body>
 </html>
