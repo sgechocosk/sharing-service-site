@@ -45,5 +45,5 @@ public class Department {
   // public Company getCompany() { return company; } // 追加すると部署が適切に表示されない
   public Department getParent() { return parent; }
   // public List<Department> getChildren() { return children; } // 追加すると部署が適切に表示されない
-  public List<User> getUsers() { return users; }
+  // public List<User> getUsers() { return users; } // 追加すると部署が適切に表示されない
 }
