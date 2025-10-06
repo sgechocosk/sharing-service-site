@@ -97,10 +97,13 @@
 }
 
 .department-card {
+  display: flex;
   background: #f0f8ff;
   border-radius: 8px;
   padding: 1.5rem;
   text-align: center;
+  justify-content: center;
+  align-items: center;
   font-weight: bold;
   cursor: pointer;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
