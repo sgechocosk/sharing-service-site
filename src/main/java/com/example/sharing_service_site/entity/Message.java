@@ -59,7 +59,6 @@ public class Message {
   public String getContent() { return content; }
   public LocalDateTime getCreatedAt() { return createdAt; }
   public LocalDateTime getUpdatedAt() { return updatedAt; }
-  public String getAuthorName() { return author.getFullName(); }
   public String getCreatedAtText() {return createdAt.toString()
                                                     .replace('T', ' ')
                                                     .substring(0, 16); }
