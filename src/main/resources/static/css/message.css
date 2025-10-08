@@ -17,6 +17,13 @@
 }
 
 .message-card {
+  display: flex;
+  align-items: stretch;
+  gap: 2px;
+}
+
+.message-body {
+  flex: 1;
   background: #f8f9fa;
   border-radius: 10px;
   padding: 8px 12px;
@@ -52,6 +59,28 @@
   font-size: 1rem;
   color: #212529;
   word-break: break-word;
+}
+
+.message-options {
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  width: 24px;
+  flex-shrink: 0;
+}
+
+.delete-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #adb5bd;
+  transition: color 0.2s, transform 0.1s;
+}
+
+.delete-button:hover {
+  color: #dc3545;
+  transform: scale(1.1);
 }
 
 .message-input-area {
@@ -103,4 +132,58 @@
 
 .message-form button:hover {
   background: #0056b3;
+}
+
+.confirm-dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 30;
+}
+
+.hidden {
+  display: none;
+}
+
+.confirm-box {
+  background: white;
+  padding: 20px 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  min-width: 280px;
+}
+
+.confirm-buttons {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.confirm-btn {
+  padding: 8px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.confirm-btn.delete {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.confirm-btn.cancel {
+  background-color: #bdc3c7;
+  color: black;
+}
+
+.confirm-btn:hover {
+  opacity: 0.9;
 }

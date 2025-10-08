@@ -73,6 +73,7 @@ public class AuthController {
                         @AuthenticationPrincipal CustomUserDetails userDetails,
                         @RequestParam Long departmentId) {
     model.addAttribute("fullName", userDetails.getFullName());
+    model.addAttribute("userId", userDetails.getUserId());
     model.addAttribute("roleName", userDetails.getRoleName());
     model.addAttribute("departmentId", departmentId);
 
@@ -107,24 +108,31 @@ public class AuthController {
   public String getMessage(Model model,
                           @AuthenticationPrincipal CustomUserDetails userDetails,
                           @ModelAttribute("departmentId") Long departmentId) {
-    if (departmentId == null) {
-      return "redirect:/home";
-    }
-    populateMessageModel(model, userDetails, departmentId);
-    return "message";
-  }
-
-  private void populateMessageModel(Model model, CustomUserDetails userDetails, Long departmentId) {
     model.addAttribute("fullName", userDetails.getFullName());
     model.addAttribute("departmentId", departmentId);
-
-    User user = userDetailsService.getUser(userDetails.getEmployeeNumber());
-    model.addAttribute("user", user);
+    model.addAttribute("userId", userDetails.getUserId());
+    model.addAttribute("roleName", userDetails.getRoleName());
 
     String departmentName = departmentService.getDepartmentNameById(departmentId);
     List<Message> messages = messageService.getMessagesByDepartmentId(departmentId);
     model.addAttribute("selectedDepartmentName", departmentName);
     model.addAttribute("messages", messages);
+    return "message";
+  }
+
+  @PostMapping("/message/delete")
+  public String deleteMessage(@RequestParam Long messageId,
+                              @RequestParam Long departmentId,
+                              RedirectAttributes redirectAttributes) {
+    try {
+      messageService.deleteMessage(messageId);
+      redirectAttributes.addFlashAttribute("success", "メッセージを削除しました。");
+    } catch (IllegalArgumentException ex) {
+      redirectAttributes.addFlashAttribute("error", ex.getMessage());
+    }
+
+    redirectAttributes.addFlashAttribute("departmentId", departmentId);
+    return "redirect:/message";
   }
 
   @GetMapping("/profile")

@@ -45,4 +45,13 @@ public class MessageService {
     Message message = new Message(department, author, content);
     return messageRepository.save(message);
   }
+
+  /**
+   * メッセージを削除する
+   * 
+   * @param messageId メッセージID
+   */
+  public void deleteMessage(Long messageId) {
+    messageRepository.deleteById(messageId);
+  }
 }
