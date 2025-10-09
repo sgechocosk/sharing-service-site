@@ -2,7 +2,6 @@ package com.example.sharing_service_site.controller;
 
 import com.example.sharing_service_site.service.CustomUserDetails;
 import com.example.sharing_service_site.service.CustomUserDetailsService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -12,11 +11,37 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class ProfileController {
 
-  @Autowired
-  private BCryptPasswordEncoder passwordEncoder;
+  private final BCryptPasswordEncoder passwordEncoder;
+  private final CustomUserDetailsService userDetailsService;
 
-  @Autowired
-  private CustomUserDetailsService userDetailsService;
+  public ProfileController(BCryptPasswordEncoder passwordEncoder,
+                           CustomUserDetailsService userDetailsService) {
+    this.passwordEncoder = passwordEncoder;
+    this.userDetailsService = userDetailsService;
+  }
+
+  @GetMapping("/profile")
+  public String profile(Model model, @AuthenticationPrincipal CustomUserDetails userDetails) {
+    model.addAttribute("username", userDetails.getUsername());
+    model.addAttribute("fullName", userDetails.getFullName());
+    model.addAttribute("role", userDetails.getRoleName());
+    model.addAttribute("company", userDetails.getCompanyName());
+    model.addAttribute("department", userDetails.getDepartmentName());
+    return "/profile";
+  }
+
+  @GetMapping("/profile/edit")
+  public String profileEdit(Model model, @AuthenticationPrincipal CustomUserDetails userDetails) {
+    model.addAttribute("fullName", userDetails.getFullName());
+    model.addAttribute("password", userDetails.getPassword());
+    return "/profile-edit";
+  }
+
+  @GetMapping("/profile/edit/done")
+  public String profileEditDone(Model model, @AuthenticationPrincipal CustomUserDetails userDetails) {
+    model.addAttribute("fullName", userDetails.getFullName());
+    return "/profile-edit-done";
+  }
 
   @PostMapping("/profile/edit")
   public String changePassword(
