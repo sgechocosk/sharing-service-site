@@ -62,6 +62,10 @@ public class Message {
   public String getCreatedAtText() {return createdAt.toString()
                                                     .replace('T', ' ')
                                                     .substring(0, 16); }
+  public String getUpdatedAtText() {
+    return updatedAt != null ? updatedAt.toString()
+                                        .replace('T', ' ')
+                                        .substring(0, 16) : ""; }
 
   public void setDepartment(Department department) { this.department = department; }
   public void setAuthor(User author) { this.author = author; }
