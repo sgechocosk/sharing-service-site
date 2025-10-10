@@ -47,6 +47,22 @@ public class MessageService {
   }
 
   /**
+   * メッセージを更新する
+   * 
+   * @param messageId メッセージID
+   * @param newContent 新しいメッセージ内容
+   * @return 更新されたメッセージ
+   * @throws IllegalArgumentException メッセージが見つからない場合
+   */
+  public Message updateMessage(Long messageId, String newContent) {
+    Message message = messageRepository.findById(messageId)
+        .orElseThrow(() -> new IllegalArgumentException("メッセージが見つかりません: " + messageId));
+    
+    message.updateContent(newContent);
+    return messageRepository.save(message);
+  }
+
+  /**
    * メッセージを削除する
    * 
    * @param messageId メッセージID

@@ -1,4 +1,86 @@
 document.addEventListener("DOMContentLoaded", () => {
+  let currentEditingCard = null;
+
+  document.addEventListener("click", (e) => {
+    const editBtn = e.target.closest(".edit-button");
+    if (editBtn) {
+      const card = editBtn.closest(".message-card");
+      toggleEditMode(card);
+    }
+
+    const saveBtn = e.target.closest(".save-button");
+    if (saveBtn) {
+      const card = saveBtn.closest(".message-card");
+      saveEdit(card);
+    }
+
+    const cancelBtn = e.target.closest(".cancel-button");
+    if (cancelBtn) {
+      const card = cancelBtn.closest(".message-card");
+      cancelEdit(card);
+    }
+  });
+
+  function toggleEditMode(card) {
+    if (currentEditingCard && currentEditingCard !== card) {
+      cancelEdit(currentEditingCard);
+    }
+
+    if (currentEditingCard === card) {
+      cancelEdit(card);
+      return;
+    }
+
+    enterEditMode(card);
+  }
+
+  function enterEditMode(card) {
+    if (currentEditingCard && currentEditingCard !== card) {
+      cancelEdit(currentEditingCard);
+    }
+
+    const view = card.querySelector(".message-content-view");
+    const edit = card.querySelector(".message-content-edit");
+    const textarea = edit.querySelector(".edit-textarea");
+
+    textarea.value = view.textContent.trim();
+    view.classList.add("hidden");
+    edit.classList.remove("hidden");
+    textarea.focus();
+
+    currentEditingCard = card;
+  }
+
+  function saveEdit(card) {
+    const view = card.querySelector(".message-content-view");
+    const edit = card.querySelector(".message-content-edit");
+    const textarea = edit.querySelector(".edit-textarea");
+
+    const newText = textarea.value.trim();
+    if (newText === "") {
+      alert("メッセージを空にはできません。");
+      return;
+    }
+
+    view.classList.remove("hidden");
+    edit.classList.add("hidden");
+
+    currentEditingCard = null;
+  }
+
+  function cancelEdit(card) {
+    const view = card.querySelector(".message-content-view");
+    const edit = card.querySelector(".message-content-edit");
+    view.classList.remove("hidden");
+    edit.classList.add("hidden");
+
+    if (currentEditingCard === card) {
+      currentEditingCard = null;
+    }
+  }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
   const dialog = document.getElementById("confirmDialog");
   const confirmBtn = document.getElementById("confirmDelete");
   const cancelBtn = document.getElementById("cancelDelete");

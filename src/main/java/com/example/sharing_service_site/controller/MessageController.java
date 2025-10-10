@@ -84,6 +84,21 @@ public class MessageController {
     return "redirect:/message";
   }
 
+  @PostMapping("/message/edit")
+  public String editMessage(@RequestParam Long messageId,
+                            @RequestParam Long departmentId,
+                            @RequestParam String content,
+                            RedirectAttributes redirectAttributes) {
+    try {
+      messageService.updateMessage(messageId, content.trim());
+      redirectAttributes.addFlashAttribute("success", "メッセージを更新しました。");
+    } catch (IllegalArgumentException ex) {
+      redirectAttributes.addFlashAttribute("error", ex.getMessage());
+    }
+    redirectAttributes.addFlashAttribute("departmentId", departmentId);
+    return "redirect:/message";
+  }
+
   @PostMapping("/message/delete")
   public String deleteMessage(@RequestParam Long messageId,
                               @RequestParam Long departmentId,
