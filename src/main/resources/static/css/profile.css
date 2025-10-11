@@ -26,6 +26,7 @@
   justify-content: space-between;
   padding: 0.5rem 1rem;
   border-bottom: 1px solid #e0e0e0;
+  white-space: nowrap;
 }
 
 .profile-item:last-child {
@@ -53,7 +54,7 @@
   margin: 1rem;
 }
 
-.profile-button {
+.profile-btn {
   background-color: #007bff;
   color: white;
   padding: 0.6rem 1.2rem;
@@ -61,15 +62,17 @@
   border-radius: 6px;
   text-decoration: none;
   font-weight: bold;
+  font-size: 1rem;
   transition: background-color 0.2s ease, transform 0.1s ease;
+  white-space: nowrap;
 }
 
-.profile-button:hover {
+.profile-btn:hover {
   background-color: #0056b3;
   transform: translateY(-2px);
 }
 
-.profile-button:active {
+.profile-btn:active {
   transform: translateY(0);
 }
 

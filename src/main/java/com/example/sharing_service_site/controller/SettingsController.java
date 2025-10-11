@@ -50,7 +50,7 @@ public class SettingsController {
                               RedirectAttributes redirectAttributes) {
     try {
       userDetailsService.updateUserRole(userId, role);
-      redirectAttributes.addFlashAttribute("success", "ユーザーのロールを更新しました。");
+      redirectAttributes.addFlashAttribute("success", "ロールを更新しました。");
     } catch (IllegalArgumentException ex) {
       redirectAttributes.addFlashAttribute("error", ex.getMessage());
     }

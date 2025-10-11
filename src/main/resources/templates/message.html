@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <title>Sharing Service Site</title>
-    <link rel="stylesheet" th:href="@{/css/message.css}" />
     <link rel="stylesheet" th:href="@{/css/header.css}" />
     <link rel="stylesheet" th:href="@{/css/sidebar.css}" />
+    <link rel="stylesheet" th:href="@{/css/message.css}" />
   </head>
   <body>
     <div th:replace="fragments/header :: header(${fullName})"></div>
@@ -13,7 +13,7 @@
     <div class="layout">
       <div th:replace="fragments/sidebar :: sidebar"></div>
 
-      <div class="main-content">
+      <div class="main-content" id="mainContent">
         <h1
           class="department-title"
           id="departmentTitle"
@@ -82,16 +82,14 @@
                 <textarea class="edit-textarea" name="content"></textarea>
 
                 <div class="edit-buttons">
-                  <button type="submit" class="save-button">保存</button>
-                  <button type="button" class="cancel-button">
-                    キャンセル
-                  </button>
+                  <button type="submit" class="save-btn">保存</button>
+                  <button type="button" class="cancel-btn">キャンセル</button>
                 </div>
               </form>
             </div>
             <div class="message-options">
               <button
-                class="edit-button"
+                class="edit-btn"
                 type="button"
                 title="編集"
                 th:if="${userId == msg.author.userId}"
@@ -119,9 +117,7 @@
                   name="departmentId"
                   th:value="${departmentId}"
                 />
-                <button class="delete-button" type="submit" title="削除">
-                  🗑
-                </button>
+                <button class="delete-btn" type="submit" title="削除">🗑</button>
               </form>
             </div>
           </li>
@@ -162,7 +158,7 @@
       </div>
     </div>
 
-    <script th:src="@{/js/message.js}"></script>
     <script th:src="@{/js/sidebar.js}"></script>
+    <script th:src="@{/js/message.js}"></script>
   </body>
 </html>

@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <title>Sharing Service Site</title>
-    <link rel="stylesheet" th:href="@{/css/profile.css}" />
     <link rel="stylesheet" th:href="@{/css/header.css}" />
     <link rel="stylesheet" th:href="@{/css/sidebar.css}" />
+    <link rel="stylesheet" th:href="@{/css/profile.css}" />
   </head>
   <body>
     <div th:replace="fragments/header :: header(${fullName})"></div>
@@ -43,7 +43,7 @@
           </div>
 
           <div class="profile-actions">
-            <a class="profile-button" th:href="@{/profile/edit}">
+            <a class="profile-btn" th:href="@{/profile/edit}">
               パスワードの変更
             </a>
           </div>

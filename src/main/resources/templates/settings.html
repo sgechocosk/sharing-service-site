@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <title>Sharing Service Site</title>
-    <link rel="stylesheet" th:href="@{/css/settings.css}" />
     <link rel="stylesheet" th:href="@{/css/header.css}" />
     <link rel="stylesheet" th:href="@{/css/sidebar.css}" />
+    <link rel="stylesheet" th:href="@{/css/settings.css}" />
   </head>
   <body>
     <div th:replace="fragments/header :: header(${fullName})"></div>
@@ -23,12 +23,14 @@
             <!-- 項目をテキストで表示 -->
             <div th:each="setting : ${settings}">
               <p>テーマカラー: <span th:text="${setting.themeColor}"></span></p>
-              <p>部署の並び順: <span th:text="${setting.departmentOrder}"></span></p>
+              <p>
+                部署の並び順: <span th:text="${setting.departmentOrder}"></span>
+              </p>
             </div>
           </div>
 
           <div class="settings-actions" sec:authorize="hasRole('ADMIN')">
-            <a class="settings-button" th:href="@{/settings/user}">
+            <a class="settings-btn" th:href="@{/settings/user}">
               ユーザー管理
             </a>
           </div>

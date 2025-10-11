@@ -3,7 +3,7 @@
   align-items: center;
 }
 
-.message-button {
+.message-btn {
   display: inline-block;
   padding: 0.3rem 0.8rem 0.5rem;
   margin-left: 2rem;
@@ -14,13 +14,13 @@
   background: white;
   font-size: 2rem;
 }
-.message-button:hover {
+.message-btn:hover {
   background: #eee;
   transform: translateY(-2px);
   transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
-.message-button:active {
+.message-btn:active {
   transform: translateY(0);
 }
 
@@ -29,7 +29,7 @@
   display: flex;
   align-items: center;
   border-radius: 5px;
-  padding: 0rem 1rem;
+  padding-left: 1rem;
   margin-bottom: 0.5rem;
   gap: 0.3rem;
 }
@@ -40,6 +40,7 @@
   padding: 0.5rem 1.5rem 0.5rem 0.8rem;
   border-radius: 0.2rem;
   background: transparent;
+  white-space: nowrap;
 }
 
 .breadcrumb span.breadcrumb-link {
