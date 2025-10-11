@@ -113,3 +113,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+window.addEventListener("load", () => {
+  const container = document.getElementById("mainContent");
+  if (scrollToEnd) {
+    container.scrollIntoView({ behavior: "instant", block: "end" });
+  } else {
+    setTimeout(() => {
+      container.scrollIntoView({ behavior: "smooth", block: "end" });
+    }, 300);
+  }
+});
