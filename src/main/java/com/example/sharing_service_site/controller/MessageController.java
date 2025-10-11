@@ -81,6 +81,7 @@ public class MessageController {
       redirectAttributes.addFlashAttribute("error", ex.getMessage());
     }
     redirectAttributes.addFlashAttribute("departmentId", departmentId);
+    redirectAttributes.addFlashAttribute("scrollToEnd", true);
     return "redirect:/message";
   }
 
@@ -96,6 +97,7 @@ public class MessageController {
       redirectAttributes.addFlashAttribute("error", ex.getMessage());
     }
     redirectAttributes.addFlashAttribute("departmentId", departmentId);
+    redirectAttributes.addFlashAttribute("scrollToEnd", true);
     return "redirect:/message";
   }
 
@@ -110,6 +112,7 @@ public class MessageController {
       redirectAttributes.addFlashAttribute("error", ex.getMessage());
     }
     redirectAttributes.addFlashAttribute("departmentId", departmentId);
+    redirectAttributes.addFlashAttribute("scrollToEnd", true);
     return "redirect:/message";
   }
 }

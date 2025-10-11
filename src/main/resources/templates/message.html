@@ -158,6 +158,13 @@
       </div>
     </div>
 
+    <script th:inline="javascript">
+      /**
+       * @type {boolean}
+       * サーバー側から渡されたフラグ（true の場合のみスクロールする）
+       */
+      const scrollToEnd = /*[[${scrollToEnd}]]*/ false;
+    </script>
     <script th:src="@{/js/sidebar.js}"></script>
     <script th:src="@{/js/message.js}"></script>
   </body>
