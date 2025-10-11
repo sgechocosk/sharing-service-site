@@ -23,7 +23,9 @@
 }
 
 .toggle-btn {
-  margin: 1rem;
+  width: 60px;
+  margin: 1rem 0;
+  padding: 0;
   background: none;
   border: none;
   color: white;
@@ -81,8 +83,10 @@
 }
 
 .main-content h1 {
+  margin: 24px 0;
   padding-left: 1rem;
   border-radius: 8px;
+  white-space: nowrap;
 }
 
 .overlay {

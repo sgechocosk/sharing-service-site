@@ -2,19 +2,19 @@ document.addEventListener("DOMContentLoaded", () => {
   let currentEditingCard = null;
 
   document.addEventListener("click", (e) => {
-    const editBtn = e.target.closest(".edit-button");
+    const editBtn = e.target.closest(".edit-btn");
     if (editBtn) {
       const card = editBtn.closest(".message-card");
       toggleEditMode(card);
     }
 
-    const saveBtn = e.target.closest(".save-button");
+    const saveBtn = e.target.closest(".save-btn");
     if (saveBtn) {
       const card = saveBtn.closest(".message-card");
       saveEdit(card);
     }
 
-    const cancelBtn = e.target.closest(".cancel-button");
+    const cancelBtn = e.target.closest(".cancel-btn");
     if (cancelBtn) {
       const card = cancelBtn.closest(".message-card");
       cancelEdit(card);

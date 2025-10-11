@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <title>Sharing Service Site</title>
-    <link rel="stylesheet" th:href="@{/css/profile.css}" />
     <link rel="stylesheet" th:href="@{/css/header.css}" />
     <link rel="stylesheet" th:href="@{/css/sidebar.css}" />
+    <link rel="stylesheet" th:href="@{/css/profile.css}" />
   </head>
   <body>
     <div th:replace="fragments/header :: header(${fullName})"></div>
@@ -71,7 +71,7 @@
           ></span>
 
           <div class="profile-actions">
-            <button class="profile-button" type="submit">確定</button>
+            <button class="profile-btn" type="submit">確定</button>
           </div>
         </form>
       </div>

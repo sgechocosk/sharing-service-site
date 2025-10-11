@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <title>Sharing Service Site</title>
-    <link rel="stylesheet" th:href="@{/css/settings.css}" />
     <link rel="stylesheet" th:href="@{/css/header.css}" />
     <link rel="stylesheet" th:href="@{/css/sidebar.css}" />
+    <link rel="stylesheet" th:href="@{/css/settings.css}" />
   </head>
   <body>
     <div th:replace="fragments/header :: header(${fullName})"></div>
@@ -76,7 +76,7 @@
       </div>
     </div>
 
-    <script th:src="@{/js/settings.js}"></script>
     <script th:src="@{/js/sidebar.js}"></script>
+    <script th:src="@{/js/settings.js}"></script>
   </body>
 </html>

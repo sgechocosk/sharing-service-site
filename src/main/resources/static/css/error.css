@@ -38,7 +38,7 @@ body {
   line-height: 1.5;
 }
 
-.home-button {
+.home-btn {
   display: inline-block;
   margin-top: 16px;
   padding: 10px 20px;
@@ -49,6 +49,6 @@ body {
   transition: background-color 0.3s ease;
 }
 
-.home-button:hover {
+.home-btn:hover {
   background-color: #0056b3;
 }
