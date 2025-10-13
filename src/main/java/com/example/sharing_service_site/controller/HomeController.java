@@ -1,6 +1,7 @@
 package com.example.sharing_service_site.controller;
 
 import java.util.List;
+
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,14 +12,18 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.example.sharing_service_site.entity.Department;
 import com.example.sharing_service_site.service.CustomUserDetails;
 import com.example.sharing_service_site.service.DepartmentService;
+import com.example.sharing_service_site.service.SettingsService;
 
 @Controller
 public class HomeController {
 
   private final DepartmentService departmentService;
+  private final SettingsService settingsService;
 
-  public HomeController(DepartmentService departmentService) {
+  public HomeController(DepartmentService departmentService,
+                        SettingsService settingsService) {
     this.departmentService = departmentService;
+    this.settingsService = settingsService;
   }
 
   @GetMapping("/home")
@@ -31,6 +36,9 @@ public class HomeController {
     List<Department> rootDepartments =
         departmentService.getRootDepartmentsByCompany(userDetails.getCompany());
     model.addAttribute("departments", rootDepartments);
+
+    String themeColor = settingsService.getThemeColorByUserId(userDetails.getUserId());
+    model.addAttribute("themeColor", themeColor);
     return "home";
   }
 

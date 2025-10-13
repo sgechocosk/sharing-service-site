@@ -30,10 +30,18 @@ public class SettingsController {
   @GetMapping("/settings")
   public String settings(Model model, @AuthenticationPrincipal CustomUserDetails userDetails) {
     model.addAttribute("fullName", userDetails.getFullName());
-
     Settings settings = settingsService.getSettingsByUserId(userDetails.getUserId());
     model.addAttribute("settings", settings);
     return "/settings";
+  }
+
+  @PostMapping("/settings/updateThemeColor")
+  public String updateSettings(@AuthenticationPrincipal CustomUserDetails userDetails,
+                               @RequestParam String themeColor,
+                               RedirectAttributes redirectAttributes) {
+    settingsService.updateThemeColor(userDetails.getUserId(), themeColor);
+    redirectAttributes.addFlashAttribute("success", "設定を更新しました。");
+    return "redirect:/settings";
   }
 
   @GetMapping("/settings/user")

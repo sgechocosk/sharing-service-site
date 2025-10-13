@@ -33,4 +33,12 @@ public class SettingsService {
     settings.setThemeColor(themeColor);
     return settingsRepository.save(settings);
   }
+
+
+  // 以下、各種設定項目のゲッターを追加
+  public String getThemeColorByUserId(Long userId) {
+    Settings settings = settingsRepository.findByUserUserId(userId)
+        .orElseThrow(() -> new IllegalArgumentException("設定情報が存在しません: " + userId));
+    return settings.getThemeColor();
+  }
 }
