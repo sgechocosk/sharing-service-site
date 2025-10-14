@@ -43,7 +43,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const edit = card.querySelector(".message-content-edit");
     const textarea = edit.querySelector(".edit-textarea");
 
-    textarea.value = view.textContent.trim();
+    const originalText = view.textContent.trim();
+    textarea.value = originalText;
+
+    const lineCount = (originalText.match(/\n/g) || []).length + 1;
+    textarea.rows = Math.min(Math.max(lineCount, 2), 20) + 1;
+
     view.classList.add("hidden");
     edit.classList.remove("hidden");
     textarea.focus();
