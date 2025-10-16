@@ -17,16 +17,74 @@
         <h1>設定</h1>
 
         <div class="settings-card">
-          <div class="settings-card">
-            <h2>ユーザー設定</h2>
+          <div class="settings-item">
+            <span class="settings-label">テーマカラー</span>
+            <form
+              class="theme-form"
+              th:action="@{/settings/updateThemeColor}"
+              method="post"
+            >
+              <input
+                type="hidden"
+                th:name="${_csrf.parameterName}"
+                th:value="${_csrf.token}"
+              />
+              <select
+                class="settings-select"
+                id="themeColorSelect"
+                name="themeColor"
+                th:value="${settings.themeColor}"
+              >
+                <option
+                  value="navy_blue"
+                  th:selected="${settings.themeColor == 'navy_blue'}"
+                >
+                  ネイビーブルー
+                </option>
+                <option
+                  value="dark_gray"
+                  th:selected="${settings.themeColor == 'dark_gray'}"
+                >
+                  ダークグレー
+                </option>
+                <option
+                  value="light"
+                  th:selected="${settings.themeColor == 'light'}"
+                >
+                  ライト
+                </option>
+                <option
+                  value="green"
+                  th:selected="${settings.themeColor == 'green'}"
+                >
+                  グリーン
+                </option>
+                <option
+                  value="pink"
+                  th:selected="${settings.themeColor == 'pink'}"
+                >
+                  ピンク
+                </option>
+              </select>
+              <button class="settings-btn" type="submit">変更</button>
+            </form>
+          </div>
 
-            <!-- 項目をテキストで表示 -->
-            <div th:each="setting : ${settings}">
-              <p>テーマカラー: <span th:text="${setting.themeColor}"></span></p>
-              <p>
-                部署の並び順: <span th:text="${setting.departmentOrder}"></span>
-              </p>
-            </div>
+          <div class="settings-item">
+            <span class="settings-label">部署の並び順</span>
+            <span class="value" th:text="${settings.departmentOrder}"
+              >部署の並び順</span
+            >
+          </div>
+
+          <div class="settings-item">
+            <span class="settings-label">サンプル</span>
+            <span class="value">サンプル</span>
+          </div>
+
+          <div class="settings-item">
+            <span class="settings-label">サンプル</span>
+            <span class="value">サンプル</span>
           </div>
 
           <div class="settings-actions" sec:authorize="hasRole('ADMIN')">
