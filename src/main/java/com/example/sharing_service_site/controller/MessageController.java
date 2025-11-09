@@ -17,6 +17,7 @@ import com.example.sharing_service_site.service.CustomUserDetails;
 import com.example.sharing_service_site.service.CustomUserDetailsService;
 import com.example.sharing_service_site.service.DepartmentService;
 import com.example.sharing_service_site.service.MessageService;
+import com.example.sharing_service_site.service.SettingsService;
 
 @Controller
 public class MessageController {
@@ -24,13 +25,16 @@ public class MessageController {
   private final MessageService messageService;
   private final DepartmentService departmentService;
   private final CustomUserDetailsService userDetailsService;
+  private final SettingsService settingsService;
 
   public MessageController(MessageService messageService,
                            DepartmentService departmentService,
-                           CustomUserDetailsService userDetailsService) {
+                           CustomUserDetailsService userDetailsService,
+                           SettingsService settingsService) {
     this.messageService = messageService;
     this.departmentService = departmentService;
     this.userDetailsService = userDetailsService;
+    this.settingsService = settingsService;
   }
 
   @PostMapping("/message")
@@ -49,6 +53,9 @@ public class MessageController {
     List<Message> messages = messageService.getMessagesByDepartmentId(departmentId);
     model.addAttribute("selectedDepartmentName", departmentName);
     model.addAttribute("messages", messages);
+
+    String themeColor = settingsService.getThemeColorByUserId(userDetails.getUserId());
+    model.addAttribute("themeColor", themeColor);
     return "message";
   }
 
@@ -65,6 +72,9 @@ public class MessageController {
     List<Message> messages = messageService.getMessagesByDepartmentId(departmentId);
     model.addAttribute("selectedDepartmentName", departmentName);
     model.addAttribute("messages", messages);
+
+    String themeColor = settingsService.getThemeColorByUserId(userDetails.getUserId());
+    model.addAttribute("themeColor", themeColor);
     return "message";
   }
 

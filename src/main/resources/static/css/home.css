@@ -104,41 +104,41 @@
 .message-btn {
   border: 1px solid #ccc;
   color: black;
-  background: white;
+  background-color: white;
 }
 
 .message-btn:hover {
-  background: #eee;
+  background-color: #eee;
 }
 
 .breadcrumb span {
   color: black;
-  background: transparent;
+  background-color: transparent;
 }
 
 .breadcrumb span.breadcrumb-link:hover::before,
 .breadcrumb span.breadcrumb-link:hover::after {
-  background: #f0f8ff;
+  background-color: #f0f8ff;
 }
 
 .breadcrumb:has(span.breadcrumb-company:hover)::before {
-  background: #f0f8ff;
+  background-color: #f0f8ff;
 }
 
 .breadcrumb span::before,
 .breadcrumb span::after {
-  background: #dbeeff;
+  background-color: #dbeeff;
 }
 
 .breadcrumb::before {
-  background: #dbeeff;
+  background-color: #dbeeff;
 }
 
 .department-card {
-  background: #f0f8ff;
+  background-color: #f0f8ff;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .department-card:hover {
-  background: #dbeeff;
+  background-color: #dbeeff;
 }
