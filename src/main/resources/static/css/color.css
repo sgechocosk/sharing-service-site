@@ -1,0 +1,138 @@
+:root[themeColor="navy_blue"] {
+  /* ヘッダー */
+  --color-header-bg: #001f4d;
+  --color-header-text: #ffffff;
+  --color-button-header-bg: #001f4d;
+  --color-button-header-bg-hover: #ffffff;
+  --color-button-header-text: #ffffff;
+  --color-button-header-text-hover: #001f4d;
+  --color-button-header-border: #ffffff;
+
+  /* サイドバー */
+  --color-sidebar-bg: #000c1d;
+  --color-sidebar-bg-hover: #5a6168;
+  --color-sidebar-text: #ffffff;
+  --color-overlay: rgba(0, 0, 0, 0.5);
+
+  /* ホーム */
+  --color-breadcrumb-bg: #dbeeff;
+  --color-breadcrumb-bg-hover: #f0f8ff;
+  --color-breadcrumb-text: #000000;
+  --color-department-card-bg: #f0f8ff;
+  --color-department-card-bg-hover: #dbeeff;
+  --color-department-card-text: #000000;
+}
+
+:root[themeColor="dark_gray"] {
+  /* ヘッダー */
+  --color-header-bg: #2a2a2a;
+  --color-header-text: #ffffff;
+  --color-button-header-bg: #2a2a2a;
+  --color-button-header-bg-hover: #ffffff;
+  --color-button-header-text: #ffffff;
+  --color-button-header-text-hover: #2a2a2a;
+  --color-button-header-border: #ffffff;
+
+  /* サイドバー */
+  --color-sidebar-bg: #1a1a1a;
+  --color-sidebar-bg-hover: #555555;
+  --color-sidebar-text: #ffffff;
+  --color-overlay: rgba(0, 0, 0, 0.5);
+
+  /* ホーム */
+  --color-breadcrumb-bg: #cacaca;
+  --color-breadcrumb-bg-hover: #eaeaea;
+  --color-breadcrumb-text: #000000;
+  --color-department-card-bg: #eaeaea;
+  --color-department-card-bg-hover: #cacaca;
+  --color-department-card-text: #000000;
+}
+
+/* ヘッダー */
+header {
+  background-color: var(--color-header-bg);
+  color: var(--color-header-text);
+}
+
+.header-left a {
+  color: var(--color-header-text);
+}
+
+.logout-btn {
+  background-color: var(--color-button-header-bg);
+  color: var(--color-button-header-text);
+  border: 1px solid var(--color-button-header-border);
+}
+
+.logout-btn:hover {
+  background-color: var(--color-button-header-bg-hover);
+  color: var(--color-button-header-text-hover);
+}
+
+/* サイドバー */
+.sidebar {
+  background-color: var(--color-sidebar-bg);
+  color: var(--color-sidebar-text);
+}
+
+.sidebar a {
+  color: var(--color-sidebar-text);
+}
+
+.sidebar a:hover {
+  background-color: var(--color-sidebar-bg-hover);
+}
+
+.toggle-btn {
+  background: none;
+  border: none;
+  color: var(--color-sidebar-text);
+}
+
+.overlay {
+  background-color: var(--color-overlay);
+}
+
+/* ホーム */
+.message-btn {
+  color: #000000;
+  background: #ffffff;
+  border: 1px solid #ccc;
+}
+
+.message-btn:hover {
+  background: #eee;
+}
+
+.breadcrumb span {
+  background-color: transparent;
+  color: var(--color-breadcrumb-text);
+}
+
+.breadcrumb span.breadcrumb-link:hover::before,
+.breadcrumb span.breadcrumb-link:hover::after {
+  background-color: var(--color-breadcrumb-bg-hover);
+}
+
+.breadcrumb:has(span.breadcrumb-company:hover)::before {
+  background-color: var(--color-breadcrumb-bg-hover);
+}
+
+.breadcrumb span::before,
+.breadcrumb span::after {
+  background-color: var(--color-breadcrumb-bg);
+}
+
+.breadcrumb::before {
+  background-color: var(--color-breadcrumb-bg);
+}
+
+.department-card {
+  background-color: var(--color-department-card-bg);
+  color: var(--color-department-card-text);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.department-card:hover {
+  background-color: var(--color-department-card-bg-hover);
+}

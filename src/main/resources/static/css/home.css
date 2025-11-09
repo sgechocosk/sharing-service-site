@@ -7,15 +7,12 @@
   display: inline-block;
   padding: 0.3rem 0.8rem 0.5rem;
   margin-left: 2rem;
-  border: 1px solid #ccc;
   border-radius: 6px;
   text-decoration: none;
-  color: black;
-  background: white;
   font-size: 2rem;
 }
+
 .message-btn:hover {
-  background: #eee;
   transform: translateY(-2px);
   transition: background-color 0.2s ease, transform 0.1s ease;
 }
@@ -35,11 +32,9 @@
 }
 
 .breadcrumb span {
-  color: black;
   position: relative;
   padding: 0.5rem 1.5rem 0.5rem 0.8rem;
   border-radius: 0.2rem;
-  background: transparent;
   white-space: nowrap;
 }
 
@@ -49,12 +44,10 @@
 
 .breadcrumb span.breadcrumb-link:hover::before,
 .breadcrumb span.breadcrumb-link:hover::after {
-  background: #f0f8ff;
   transition: background-color 0.2s ease;
 }
 
 .breadcrumb:has(span.breadcrumb-company:hover)::before {
-  background: #f0f8ff;
   transition: background-color 0.2s ease;
 }
 
@@ -65,7 +58,6 @@
   width: 100%;
   height: 50%;
   margin-left: 0.5rem;
-  background: #dbeeff;
   content: "";
   z-index: -5;
 }
@@ -87,7 +79,6 @@
   top: 0;
   bottom: 0;
   width: 1.5rem;
-  background: #dbeeff;
   pointer-events: none;
 }
 
@@ -99,7 +90,6 @@
 
 .department-card {
   display: flex;
-  background: #f0f8ff;
   border-radius: 8px;
   padding: 1.5rem;
   text-align: center;
@@ -107,8 +97,46 @@
   align-items: center;
   font-weight: bold;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   transition: background-color 0.2s ease;
+}
+
+/* 以下のデフォルトカラーは色設定変更完了後に削除する */
+.message-btn {
+  border: 1px solid #ccc;
+  color: black;
+  background: white;
+}
+
+.message-btn:hover {
+  background: #eee;
+}
+
+.breadcrumb span {
+  color: black;
+  background: transparent;
+}
+
+.breadcrumb span.breadcrumb-link:hover::before,
+.breadcrumb span.breadcrumb-link:hover::after {
+  background: #f0f8ff;
+}
+
+.breadcrumb:has(span.breadcrumb-company:hover)::before {
+  background: #f0f8ff;
+}
+
+.breadcrumb span::before,
+.breadcrumb span::after {
+  background: #dbeeff;
+}
+
+.breadcrumb::before {
+  background: #dbeeff;
+}
+
+.department-card {
+  background: #f0f8ff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .department-card:hover {

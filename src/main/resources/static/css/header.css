@@ -6,8 +6,6 @@ body {
 header {
   position: fixed;
   height: 60px;
-  background-color: #001f4d;
-  color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -21,7 +19,6 @@ header {
 
 .header-left a {
   text-decoration: none;
-  color: white;
   font-size: 1.4rem;
   font-weight: bold;
   font-family: "Segoe UI", sans-serif;
@@ -39,14 +36,27 @@ header {
 }
 
 .logout-btn {
-  background-color: transparent;
-  border: 1px solid white;
   border-radius: 4px;
   padding: 0.4rem 0.8rem;
-  color: white;
   font-size: 0.9rem;
   cursor: pointer;
   transition: background-color 0.2s, color 0.2s;
+}
+
+/* 以下のデフォルトカラーは色設定変更完了後に削除する */
+header {
+  background-color: #001f4d;
+  color: white;
+}
+
+.header-left a {
+  color: white;
+}
+
+.logout-btn {
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
 }
 
 .logout-btn:hover {
