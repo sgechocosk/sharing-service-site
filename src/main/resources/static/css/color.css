@@ -35,9 +35,14 @@
   --color-dialog-bg: #ffffff;
   --color-dialog-text: #000000;
 
+  /* プロフィール */
+  --color-message-profile-bg: #f0f8ff;
+  --color-message-profile-text: #007bff;
+
   /* 共通 */
   --color-bg: #ffffff;
   --color-text: #000000;
+  --color-text-error: #ff0000;
   --color-button-confirm: #007bff;
   --color-button-confirm-hover: #0056b3;
   --color-button-confirm-text: #ffffff;
@@ -47,6 +52,9 @@
   --color-button-cancel: #bdc3c7;
   --color-button-cancel-hover: #c0c0c0;
   --color-button-cancel-text: #000000;
+  --color-list-bg: #ffffff;
+  --color-list-label: #555;
+  --color-list-value: #111;
 }
 
 :root[themeColor="dark_gray"] {
@@ -86,9 +94,14 @@
   --color-dialog-bg: #ffffff;
   --color-dialog-text: #000000;
 
+  /* プロフィール */
+  --color-message-profile-bg: #eaeaea;
+  --color-message-profile-text: #1a1a1a;
+
   /* 共通 */
   --color-bg: #ffffff;
   --color-text: #000000;
+  --color-text-error: #ff0000;
   --color-button-confirm: #2a2a2a;
   --color-button-confirm-hover: #1a1a1a;
   --color-button-confirm-text: #ffffff;
@@ -98,6 +111,15 @@
   --color-button-cancel: #bdc3c7;
   --color-button-cancel-hover: #c0c0c0;
   --color-button-cancel-text: #000000;
+  --color-list-bg: #ffffff;
+  --color-list-label: #555;
+  --color-list-value: #111;
+}
+
+/* 共通 */
+.body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
 }
 
 /* ヘッダー */
@@ -144,10 +166,6 @@ header {
 }
 
 /* ホーム */
-body {
-  background-color: var(--color-bg);
-}
-
 .company-title {
   color: var(--color-text);
 }
@@ -196,10 +214,6 @@ body {
 }
 
 /* メッセージ */
-.body {
-  background-color: var(--color-bg);
-}
-
 .department-title {
   color: var(--color-text);
 }
@@ -302,4 +316,45 @@ body {
 
 .confirm-btn.cancel:hover {
   background-color: var(--color-button-cancel-hover);
+}
+
+/* プロフィール */
+.main-content h2 {
+  background-color: var(--color-message-profile-bg);
+  color: var(--color-message-profile-text);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.profile-card {
+  background-color: var(--color-list-bg);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-item {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.profile-label {
+  color: var(--color-list-label);
+}
+
+.value {
+  color: var(--color-list-value);
+}
+
+.profile-item input {
+  border: 1px solid #ccc;
+}
+
+.profile-btn {
+  background-color: var(--color-button-confirm);
+  color: var(--color-button-confirm-text);
+}
+
+.profile-btn:hover {
+  background-color: var(--color-button-confirm-hover);
+}
+
+.error-message {
+  color: var(--color-text-error);
 }

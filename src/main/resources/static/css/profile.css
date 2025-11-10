@@ -2,31 +2,26 @@
   text-align: center;
   font-size: 1.5rem;
   font-weight: bold;
-  color: #007bff;
-  background-color: #f0f8ff;
   padding: 1rem;
   border-radius: 8px;
   margin: 1.5rem auto;
   max-width: 500px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .profile-card {
-  background-color: white;
   border-radius: 8px;
   padding: 1rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0;
 }
 
 .profile-item {
   display: flex;
   justify-content: space-between;
   padding: 0.5rem 1rem;
-  border-bottom: 1px solid #e0e0e0;
   white-space: nowrap;
+  margin-bottom: 0.75rem;
 }
 
 .profile-item:last-child {
@@ -35,15 +30,9 @@
 
 .profile-label {
   font-weight: bold;
-  color: #555;
-}
-
-.value {
-  color: #111;
 }
 
 .profile-item input {
-  border: 1px solid #ccc;
   border-radius: 5px;
   box-sizing: border-box;
 }
@@ -55,8 +44,6 @@
 }
 
 .profile-btn {
-  background-color: #007bff;
-  color: white;
   padding: 0.6rem 1.2rem;
   border: none;
   border-radius: 6px;
@@ -68,7 +55,6 @@
 }
 
 .profile-btn:hover {
-  background-color: #0056b3;
   transform: translateY(-2px);
 }
 
@@ -77,9 +63,49 @@
 }
 
 .error-message {
-  color: red;
   font-size: 0.9em;
-  margin-top: 4px;
+  margin: -0.75rem 0 4px;
   display: block;
   text-align: right;
+}
+
+/* 以下のデフォルトカラーは色設定変更完了後に削除する */
+.main-content h2 {
+  background-color: #f0f8ff;
+  color: #007bff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.profile-card {
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-item {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.profile-label {
+  color: #555;
+}
+
+.value {
+  color: #111;
+}
+
+.profile-item input {
+  border: 1px solid #ccc;
+}
+
+.profile-btn {
+  background-color: #007bff;
+  color: white;
+}
+
+.profile-btn:hover {
+  background-color: #0056b3;
+}
+
+.error-message {
+  color: red;
 }
