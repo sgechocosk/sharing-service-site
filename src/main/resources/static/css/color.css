@@ -18,9 +18,35 @@
   --color-breadcrumb-bg: #dbeeff;
   --color-breadcrumb-bg-hover: #f0f8ff;
   --color-breadcrumb-text: #000000;
+  --color-button-message-bg: #ffffff;
+  --color-button-message-bg-hover: #eee;
+  --color-button-message-text: #000000;
   --color-department-card-bg: #f0f8ff;
   --color-department-card-bg-hover: #dbeeff;
   --color-department-card-text: #000000;
+
+  /* メッセージ */
+  --color-message-body-bg: #f8f9fa;
+  --color-message-body-name: #495057;
+  --color-message-body-header: #adb5bd;
+  --color-message-body-text: #212529;
+  --color-button-option: #adb5bd;
+  --color-button-option-hover: #dc3545;
+  --color-dialog-bg: #ffffff;
+  --color-dialog-text: #000000;
+
+  /* 共通 */
+  --color-bg: #ffffff;
+  --color-text: #000000;
+  --color-button-confirm: #007bff;
+  --color-button-confirm-hover: #0056b3;
+  --color-button-confirm-text: #ffffff;
+  --color-button-delete: #e74c3c;
+  --color-button-delete-hover: #c0392b;
+  --color-button-delete-text: #ffffff;
+  --color-button-cancel: #bdc3c7;
+  --color-button-cancel-hover: #c0c0c0;
+  --color-button-cancel-text: #000000;
 }
 
 :root[themeColor="dark_gray"] {
@@ -43,9 +69,35 @@
   --color-breadcrumb-bg: #cacaca;
   --color-breadcrumb-bg-hover: #eaeaea;
   --color-breadcrumb-text: #000000;
+  --color-button-message-bg: #ffffff;
+  --color-button-message-bg-hover: #eee;
+  --color-button-message-text: #000000;
   --color-department-card-bg: #eaeaea;
   --color-department-card-bg-hover: #cacaca;
   --color-department-card-text: #000000;
+
+  /* メッセージ */
+  --color-message-body-bg: #f8f9fa;
+  --color-message-body-name: #495057;
+  --color-message-body-header: #adb5bd;
+  --color-message-body-text: #212529;
+  --color-button-option: #adb5bd;
+  --color-button-option-hover: #dc3545;
+  --color-dialog-bg: #ffffff;
+  --color-dialog-text: #000000;
+
+  /* 共通 */
+  --color-bg: #ffffff;
+  --color-text: #000000;
+  --color-button-confirm: #2a2a2a;
+  --color-button-confirm-hover: #1a1a1a;
+  --color-button-confirm-text: #ffffff;
+  --color-button-delete: #e74c3c;
+  --color-button-delete-hover: #c0392b;
+  --color-button-delete-text: #ffffff;
+  --color-button-cancel: #bdc3c7;
+  --color-button-cancel-hover: #c0c0c0;
+  --color-button-cancel-text: #000000;
 }
 
 /* ヘッダー */
@@ -84,8 +136,6 @@ header {
 }
 
 .toggle-btn {
-  background: none;
-  border: none;
   color: var(--color-sidebar-text);
 }
 
@@ -94,14 +144,22 @@ header {
 }
 
 /* ホーム */
+body {
+  background-color: var(--color-bg);
+}
+
+.company-title {
+  color: var(--color-text);
+}
+
 .message-btn {
-  color: #000000;
-  background: #ffffff;
+  background-color: var(--color-button-message-bg);
+  color: var(--color-button-message-text);
   border: 1px solid #ccc;
 }
 
 .message-btn:hover {
-  background: #eee;
+  background-color: var(--color-button-message-bg-hover);
 }
 
 .breadcrumb span {
@@ -135,4 +193,113 @@ header {
 
 .department-card:hover {
   background-color: var(--color-department-card-bg-hover);
+}
+
+/* メッセージ */
+.body {
+  background-color: var(--color-bg);
+}
+
+.department-title {
+  color: var(--color-text);
+}
+
+.message-body {
+  background-color: var(--color-message-body-bg);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.message-header-left {
+  color: var(--color-message-body-name);
+}
+
+.message-department .message-header-right {
+  color: var(--color-message-body-header);
+}
+
+.message-content-view {
+  color: var(--color-message-body-text);
+}
+
+.edit-textarea {
+  border: 1px solid #dee2e6;
+}
+
+.save-btn {
+  background-color: var(--color-button-confirm);
+  color: var(--color-button-confirm-text);
+}
+
+.save-btn:hover {
+  background-color: var(--color-button-confirm-hover);
+}
+
+.cancel-btn {
+  background-color: var(--color-button-cancel);
+  color: var(--color-button-cancel-text);
+}
+
+.cancel-btn:hover {
+  background-color: var(--color-button-cancel-hover);
+}
+
+.edit-btn,
+.delete-btn {
+  color: var(--color-button-option);
+}
+
+.edit-btn:hover,
+.delete-btn:hover {
+  color: var(--color-button-option-hover);
+}
+
+.message-input-area {
+  background-color: var(--color-bg);
+  border-top: 1px solid #dee2e6;
+}
+
+.message-form textarea {
+  border: 1px solid #dee2e6;
+}
+
+.message-form textarea:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.message-form button {
+  background-color: var(--color-button-confirm);
+  color: var(--color-button-confirm-text);
+}
+
+.message-form button:hover {
+  background-color: var(--color-button-confirm-hover);
+}
+
+.confirm-dialog {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.confirm-box {
+  background-color: var(--color-dialog-bg);
+  color: var(--color-dialog-text);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.confirm-btn.delete {
+  background-color: var(--color-button-delete);
+  color: var(--color-button-delete-text);
+}
+
+.confirm-btn.delete:hover {
+  background-color: var(--color-button-delete-hover);
+}
+
+.confirm-btn.cancel {
+  background-color: var(--color-button-cancel);
+  color: var(--color-button-cancel-text);
+}
+
+.confirm-btn.cancel:hover {
+  background-color: var(--color-button-cancel-hover);
 }
