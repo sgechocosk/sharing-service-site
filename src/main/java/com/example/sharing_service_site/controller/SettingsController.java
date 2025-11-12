@@ -32,6 +32,9 @@ public class SettingsController {
     model.addAttribute("fullName", userDetails.getFullName());
     Settings settings = settingsService.getSettingsByUserId(userDetails.getUserId());
     model.addAttribute("settings", settings);
+
+    String themeColor = settingsService.getThemeColorByUserId(userDetails.getUserId());
+    model.addAttribute("themeColor", themeColor);
     return "/settings";
   }
 
@@ -49,6 +52,9 @@ public class SettingsController {
     model.addAttribute("fullName", userDetails.getFullName());
     List<User> users = userDetailsService.getUsersByCompanyId(userDetails.getCompany().getCompanyId());
     model.addAttribute("users", users);
+
+    String themeColor = settingsService.getThemeColorByUserId(userDetails.getUserId());
+    model.addAttribute("themeColor", themeColor);
     return "/settings-user";
   }
 
