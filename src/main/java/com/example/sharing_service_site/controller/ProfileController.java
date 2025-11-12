@@ -2,6 +2,7 @@ package com.example.sharing_service_site.controller;
 
 import com.example.sharing_service_site.service.CustomUserDetails;
 import com.example.sharing_service_site.service.CustomUserDetailsService;
+import com.example.sharing_service_site.service.SettingsService;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -13,11 +14,14 @@ public class ProfileController {
 
   private final BCryptPasswordEncoder passwordEncoder;
   private final CustomUserDetailsService userDetailsService;
+  private final SettingsService settingsService;
 
   public ProfileController(BCryptPasswordEncoder passwordEncoder,
-                           CustomUserDetailsService userDetailsService) {
+                           CustomUserDetailsService userDetailsService,
+                           SettingsService settingsService) {
     this.passwordEncoder = passwordEncoder;
     this.userDetailsService = userDetailsService;
+    this.settingsService = settingsService;
   }
 
   @GetMapping("/profile")
@@ -27,6 +31,9 @@ public class ProfileController {
     model.addAttribute("role", userDetails.getRoleName());
     model.addAttribute("company", userDetails.getCompanyName());
     model.addAttribute("department", userDetails.getDepartmentName());
+
+    String themeColor = settingsService.getThemeColorByUserId(userDetails.getUserId());
+    model.addAttribute("themeColor", themeColor);
     return "/profile";
   }
 
@@ -34,12 +41,18 @@ public class ProfileController {
   public String profileEdit(Model model, @AuthenticationPrincipal CustomUserDetails userDetails) {
     model.addAttribute("fullName", userDetails.getFullName());
     model.addAttribute("password", userDetails.getPassword());
+
+    String themeColor = settingsService.getThemeColorByUserId(userDetails.getUserId());
+    model.addAttribute("themeColor", themeColor);
     return "/profile-edit";
   }
 
   @GetMapping("/profile/edit/done")
   public String profileEditDone(Model model, @AuthenticationPrincipal CustomUserDetails userDetails) {
     model.addAttribute("fullName", userDetails.getFullName());
+
+    String themeColor = settingsService.getThemeColorByUserId(userDetails.getUserId());
+    model.addAttribute("themeColor", themeColor);
     return "/profile-edit-done";
   }
 
@@ -73,11 +86,17 @@ public class ProfileController {
 
     if (hasError) {
       model.addAttribute("fullName", userDetails.getFullName());
+      
+      String themeColor = settingsService.getThemeColorByUserId(userDetails.getUserId());
+      model.addAttribute("themeColor", themeColor);
       return "/profile-edit";
     }
 
     String encodedPassword = passwordEncoder.encode(newPassword);
     userDetailsService.updatePassword(userDetails.getUsername(), encodedPassword);
+
+    String themeColor = settingsService.getThemeColorByUserId(userDetails.getUserId());
+    model.addAttribute("themeColor", themeColor);
     return "redirect:/profile/edit/done";
   }
 }
