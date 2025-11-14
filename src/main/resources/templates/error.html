@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" th:attr="themeColor=${themeColor}">
   <head>
     <meta charset="UTF-8" />
     <title>Sharing Service Site</title>
     <link rel="stylesheet" th:href="@{/css/header.css}" />
     <link rel="stylesheet" th:href="@{/css/error.css}" />
+    <link rel="stylesheet" th:href="@{/css/color.css}" />
   </head>
   <body>
     <div th:replace="fragments/header :: header(${fullName})"></div>
 
     <div class="error-container">
-      <h1 class="error-status" th:text="${status}">404</h1>
+      <h1 class="error-status" th:text="${status}">エラーコード</h1>
 
       <h2 class="error-title" th:switch="${status}">
         <span th:case="404">ページが見つかりませんでした。</span>
