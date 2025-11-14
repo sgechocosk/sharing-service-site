@@ -178,8 +178,8 @@
   --color-message-profile-text: #fff;
 
   /* 設定 */
-  --color-toast-bg: #fff;
-  --color-toast-text: #333;
+  --color-toast-bg: #222;
+  --color-toast-text: #fff;
 
   /* エラーページ */
   --color-text-error-title: #333;
@@ -201,7 +201,7 @@
   --color-button-border: #555;
   --color-list-bg: #222;
   --color-list-text: #fff;
-  --color-list-header: #111;
+  --color-list-header: #333;
   --color-list-label: #fff;
   --color-list-value: #fff;
 }
