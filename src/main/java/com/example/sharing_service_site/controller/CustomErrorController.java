@@ -7,11 +7,18 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.sharing_service_site.service.CustomUserDetails;
+import com.example.sharing_service_site.service.SettingsService;
 
 import jakarta.servlet.http.HttpServletRequest;
 
 @Controller
 public class CustomErrorController implements ErrorController {
+
+  private final SettingsService settingsService;
+
+  public CustomErrorController(SettingsService settingsService) {
+    this.settingsService = settingsService;
+  }
 
   @RequestMapping("/error")
   public String handleError(HttpServletRequest request,
@@ -23,6 +30,9 @@ public class CustomErrorController implements ErrorController {
     if (userDetails != null) {
       model.addAttribute("fullName", userDetails.getFullName());
     }
+
+    String themeColor = settingsService.getThemeColorByUserId(userDetails.getUserId());
+    model.addAttribute("themeColor", themeColor);
     return "error";
   }
 }

@@ -43,6 +43,10 @@
   --color-toast-bg: #fff;
   --color-toast-text: #333;
 
+  /* エラーページ */
+  --color-text-error-title: #333;
+  --color-text-error-subtitle: #666;
+
   /* 共通 */
   --color-bg: #ffffff;
   --color-text: #000000;
@@ -107,6 +111,10 @@
   /* 設定 */
   --color-toast-bg: #333;
   --color-toast-text: #fff;
+
+  /* エラーページ */
+  --color-text-error-title: #333;
+  --color-text-error-subtitle: #666;
 
   /* 共通 */
   --color-bg: #ffffff;
@@ -425,4 +433,26 @@ header {
   background-color: var(--color-toast-bg);
   color: var(--color-toast-text);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* エラーページ */
+.error-status {
+  color: var(--color-header-bg);
+}
+
+.error-title {
+  color: var(--color-text-error-title);
+}
+
+.error-subtitle {
+  color: var(--color-text-error-subtitle);
+}
+
+.home-btn {
+  background-color: var(--color-button-confirm);
+  color: var(--color-button-confirm-text);
+}
+
+.home-btn:hover {
+  background-color: var(--color-button-confirm-hover);
 }
