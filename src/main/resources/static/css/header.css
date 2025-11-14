@@ -42,24 +42,3 @@ header {
   cursor: pointer;
   transition: background-color 0.2s, color 0.2s;
 }
-
-/* 以下のデフォルトカラーは色設定変更完了後に削除する */
-header {
-  background-color: #001f4d;
-  color: white;
-}
-
-.header-left a {
-  color: white;
-}
-
-.logout-btn {
-  background-color: transparent;
-  border: 1px solid white;
-  color: white;
-}
-
-.logout-btn:hover {
-  background-color: white;
-  color: #001f4d;
-}
