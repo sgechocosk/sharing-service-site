@@ -29,7 +29,6 @@
   --color-message-body-name: #495057;
   --color-message-body-header: #adb5bd;
   --color-message-body-text: #212529;
-  --color-button-send-border: none;
   --color-button-option: #adb5bd;
   --color-button-option-hover: #dc3545;
   --color-dialog-bg: #fff;
@@ -41,7 +40,7 @@
 
   /* 設定 */
   --color-toast-bg: #fff;
-  --color-toast-text: #333;
+  --color-toast-text: #222;
 
   /* エラーページ */
   --color-text-error-title: #333;
@@ -60,6 +59,7 @@
   --color-button-cancel: #bdc3c7;
   --color-button-cancel-hover: #c0c0c0;
   --color-button-cancel-text: #000;
+  --color-button-border: none;
   --color-list-bg: #fff;
   --color-list-text: #000;
   --color-list-header: #f0f0f0;
@@ -98,7 +98,6 @@
   --color-message-body-name: #495057;
   --color-message-body-header: #adb5bd;
   --color-message-body-text: #212529;
-  --color-button-send-border: none;
   --color-button-option: #adb5bd;
   --color-button-option-hover: #dc3545;
   --color-dialog-bg: #fff;
@@ -129,6 +128,7 @@
   --color-button-cancel: #bdc3c7;
   --color-button-cancel-hover: #c0c0c0;
   --color-button-cancel-text: #000;
+  --color-button-border: none;
   --color-list-bg: #fff;
   --color-list-text: #000;
   --color-list-header: #f0f0f0;
@@ -172,11 +172,10 @@
   --color-button-option-hover: #ff0000;
   --color-dialog-bg: #222;
   --color-dialog-text: #fff;
-  --color-dialog-overlay: rgba(0, 0, 0, 0.6);
 
   /* プロフィール */
-  --color-message-profile-bg: #f0f8ff;
-  --color-message-profile-text: #007bff;
+  --color-message-profile-bg: #222;
+  --color-message-profile-text: #fff;
 
   /* 設定 */
   --color-toast-bg: #fff;
@@ -189,7 +188,7 @@
   /* 共通 */
   --color-bg: #000;
   --color-text: #fff;
-  --color-text-error: #ff0000;
+  --color-text-error: #e74c3c;
   --color-button-confirm: #000;
   --color-button-confirm-hover: #111;
   --color-button-confirm-text: #fff;
@@ -199,9 +198,10 @@
   --color-button-cancel: #bdc3c7;
   --color-button-cancel-hover: #c0c0c0;
   --color-button-cancel-text: #000;
-  --color-list-bg: #000;
+  --color-button-border: #555;
+  --color-list-bg: #222;
   --color-list-text: #fff;
-  --color-list-header: #0f0f0f;
+  --color-list-header: #111;
   --color-list-label: #fff;
   --color-list-value: #fff;
 }
@@ -375,7 +375,7 @@ header {
 .message-form button {
   background-color: var(--color-button-confirm);
   color: var(--color-button-confirm-text);
-  border: var(--color-button-send-border) solid 1px;
+  border: var(--color-button-border) solid 1px;
 }
 
 .message-form button:hover {
@@ -383,7 +383,7 @@ header {
 }
 
 .confirm-dialog {
-  background-color: var(--color-dialog-overlay);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .confirm-box {
@@ -445,6 +445,12 @@ header {
 
 .profile-btn:hover {
   background-color: var(--color-button-confirm-hover);
+}
+
+.profile-back-btn {
+  background-color: var(--color-button-confirm);
+  color: var(--color-button-confirm-text);
+  border: var(--color-button-border) solid 1px;
 }
 
 .error-message {

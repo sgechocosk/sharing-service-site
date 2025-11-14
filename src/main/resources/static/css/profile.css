@@ -43,7 +43,8 @@
   margin: 1rem;
 }
 
-.profile-btn {
+.profile-btn,
+.profile-back-btn {
   padding: 0.6rem 1.2rem;
   border: none;
   border-radius: 6px;
@@ -54,11 +55,13 @@
   white-space: nowrap;
 }
 
-.profile-btn:hover {
+.profile-btn:hover,
+.profile-back-btn:hover {
   transform: translateY(-2px);
 }
 
-.profile-btn:active {
+.profile-btn:active,
+.profile-back-btn:active {
   transform: translateY(0);
 }
 
