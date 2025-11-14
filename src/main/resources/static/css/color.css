@@ -29,6 +29,7 @@
   --color-message-body-name: #495057;
   --color-message-body-header: #adb5bd;
   --color-message-body-text: #212529;
+  --color-button-send-border: none;
   --color-button-option: #adb5bd;
   --color-button-option-hover: #dc3545;
   --color-dialog-bg: #fff;
@@ -97,6 +98,7 @@
   --color-message-body-name: #495057;
   --color-message-body-header: #adb5bd;
   --color-message-body-text: #212529;
+  --color-button-send-border: none;
   --color-button-option: #adb5bd;
   --color-button-option-hover: #dc3545;
   --color-dialog-bg: #fff;
@@ -161,14 +163,16 @@
   --color-department-card-text: #fff;
 
   /* メッセージ */
-  --color-message-body-bg: #f8f9fa;
-  --color-message-body-name: #495057;
-  --color-message-body-header: #adb5bd;
-  --color-message-body-text: #212529;
-  --color-button-option: #adb5bd;
-  --color-button-option-hover: #dc3545;
-  --color-dialog-bg: #fff;
-  --color-dialog-text: #000;
+  --color-message-body-bg: #222;
+  --color-message-body-name: #fff;
+  --color-message-body-header: #ccc;
+  --color-message-body-text: #fff;
+  --color-button-send-border: #555;
+  --color-button-option: #fff;
+  --color-button-option-hover: #ff0000;
+  --color-dialog-bg: #222;
+  --color-dialog-text: #fff;
+  --color-dialog-overlay: rgba(0, 0, 0, 0.6);
 
   /* プロフィール */
   --color-message-profile-bg: #f0f8ff;
@@ -186,8 +190,8 @@
   --color-bg: #000;
   --color-text: #fff;
   --color-text-error: #ff0000;
-  --color-button-confirm: #222;
-  --color-button-confirm-hover: #444;
+  --color-button-confirm: #000;
+  --color-button-confirm-hover: #111;
   --color-button-confirm-text: #fff;
   --color-button-delete: #e74c3c;
   --color-button-delete-hover: #c0392b;
@@ -309,11 +313,12 @@ header {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
-.message-header-left {
+.message-name {
   color: var(--color-message-body-name);
 }
 
-.message-department .message-header-right {
+.message-department,
+.message-header-right {
   color: var(--color-message-body-header);
 }
 
@@ -370,6 +375,7 @@ header {
 .message-form button {
   background-color: var(--color-button-confirm);
   color: var(--color-button-confirm-text);
+  border: var(--color-button-send-border) solid 1px;
 }
 
 .message-form button:hover {
@@ -377,7 +383,7 @@ header {
 }
 
 .confirm-dialog {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: var(--color-dialog-overlay);
 }
 
 .confirm-box {
