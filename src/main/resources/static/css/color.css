@@ -43,6 +43,7 @@
   --color-toast-text: #222;
 
   /* エラーページ */
+  --color-text-status: #001f4d;
   --color-text-error-title: #333;
   --color-text-error-subtitle: #666;
 
@@ -65,6 +66,8 @@
   --color-list-header: #f0f0f0;
   --color-list-label: #555;
   --color-list-value: #111;
+  --color-input-bg: #fff;
+  --color-input-text: #000;
 }
 
 :root[themeColor="dark_gray"] {
@@ -112,6 +115,7 @@
   --color-toast-text: #fff;
 
   /* エラーページ */
+  --color-text-status: #2a2a2a;
   --color-text-error-title: #333;
   --color-text-error-subtitle: #666;
 
@@ -134,6 +138,8 @@
   --color-list-header: #f0f0f0;
   --color-list-label: #555;
   --color-list-value: #111;
+  --color-input-bg: #fff;
+  --color-input-text: #000;
 }
 
 :root[themeColor="black"] {
@@ -182,8 +188,9 @@
   --color-toast-text: #fff;
 
   /* エラーページ */
-  --color-text-error-title: #333;
-  --color-text-error-subtitle: #666;
+  --color-text-status: #fff;
+  --color-text-error-title: #ddd;
+  --color-text-error-subtitle: #aaa;
 
   /* 共通 */
   --color-bg: #000;
@@ -204,6 +211,8 @@
   --color-list-header: #333;
   --color-list-label: #fff;
   --color-list-value: #fff;
+  --color-input-bg: #222;
+  --color-input-text: #fff;
 }
 
 /* 共通 */
@@ -327,6 +336,8 @@ header {
 }
 
 .edit-textarea {
+  background-color: var(--color-input-bg);
+  color: var(--color-input-text);
   border: 1px solid #dee2e6;
 }
 
@@ -364,12 +375,9 @@ header {
 }
 
 .message-form textarea {
+  background-color: var(--color-input-bg);
+  color: var(--color-input-text);
   border: 1px solid #dee2e6;
-}
-
-.message-form textarea:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
 }
 
 .message-form button {
@@ -435,6 +443,8 @@ header {
 }
 
 .profile-item input {
+  background-color: var(--color-input-bg);
+  color: var(--color-input-text);
   border: 1px solid #ccc;
 }
 
@@ -515,7 +525,7 @@ header {
 
 /* エラーページ */
 .error-status {
-  color: var(--color-header-bg);
+  color: var(--color-header-status);
 }
 
 .error-title {
@@ -529,6 +539,7 @@ header {
 .home-btn {
   background-color: var(--color-button-confirm);
   color: var(--color-button-confirm-text);
+  border: var(--color-button-border) solid 1px;
 }
 
 .home-btn:hover {
