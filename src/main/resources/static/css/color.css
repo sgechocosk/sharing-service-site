@@ -1,29 +1,28 @@
 :root[themeColor="navy_blue"] {
   /* ヘッダー */
   --color-header-bg: #001f4d;
-  --color-header-text: #ffffff;
+  --color-header-text: #fff;
   --color-button-header-bg: #001f4d;
-  --color-button-header-bg-hover: #ffffff;
-  --color-button-header-text: #ffffff;
+  --color-button-header-bg-hover: #fff;
+  --color-button-header-text: #fff;
   --color-button-header-text-hover: #001f4d;
-  --color-button-header-border: #ffffff;
+  --color-button-header-border: #fff;
 
   /* サイドバー */
   --color-sidebar-bg: #000c1d;
   --color-sidebar-bg-hover: #5a6168;
-  --color-sidebar-text: #ffffff;
-  --color-overlay: rgba(0, 0, 0, 0.5);
+  --color-sidebar-text: #fff;
 
   /* ホーム */
   --color-breadcrumb-bg: #dbeeff;
   --color-breadcrumb-bg-hover: #f0f8ff;
-  --color-breadcrumb-text: #000000;
-  --color-button-message-bg: #ffffff;
+  --color-breadcrumb-text: #000;
+  --color-button-message-bg: #fff;
   --color-button-message-bg-hover: #eee;
-  --color-button-message-text: #000000;
+  --color-button-message-text: #000;
   --color-department-card-bg: #f0f8ff;
   --color-department-card-bg-hover: #dbeeff;
-  --color-department-card-text: #000000;
+  --color-department-card-text: #000;
 
   /* メッセージ */
   --color-message-body-bg: #f8f9fa;
@@ -32,8 +31,8 @@
   --color-message-body-text: #212529;
   --color-button-option: #adb5bd;
   --color-button-option-hover: #dc3545;
-  --color-dialog-bg: #ffffff;
-  --color-dialog-text: #000000;
+  --color-dialog-bg: #fff;
+  --color-dialog-text: #000;
 
   /* プロフィール */
   --color-message-profile-bg: #f0f8ff;
@@ -41,58 +40,61 @@
 
   /* 設定 */
   --color-toast-bg: #fff;
-  --color-toast-text: #333;
+  --color-toast-text: #222;
 
   /* エラーページ */
+  --color-text-status: #001f4d;
   --color-text-error-title: #333;
   --color-text-error-subtitle: #666;
 
   /* 共通 */
-  --color-bg: #ffffff;
-  --color-text: #000000;
+  --color-bg: #fff;
+  --color-text: #000;
   --color-text-error: #ff0000;
   --color-button-confirm: #007bff;
   --color-button-confirm-hover: #0056b3;
-  --color-button-confirm-text: #ffffff;
+  --color-button-confirm-text: #fff;
   --color-button-delete: #e74c3c;
   --color-button-delete-hover: #c0392b;
-  --color-button-delete-text: #ffffff;
+  --color-button-delete-text: #fff;
   --color-button-cancel: #bdc3c7;
   --color-button-cancel-hover: #c0c0c0;
-  --color-button-cancel-text: #000000;
-  --color-list-bg: #ffffff;
-  --color-list-text: #000000;
+  --color-button-cancel-text: #000;
+  --color-button-border: none;
+  --color-list-bg: #fff;
+  --color-list-text: #000;
   --color-list-header: #f0f0f0;
   --color-list-label: #555;
   --color-list-value: #111;
+  --color-input-bg: #fff;
+  --color-input-text: #000;
 }
 
 :root[themeColor="dark_gray"] {
   /* ヘッダー */
   --color-header-bg: #2a2a2a;
-  --color-header-text: #ffffff;
+  --color-header-text: #fff;
   --color-button-header-bg: #2a2a2a;
-  --color-button-header-bg-hover: #ffffff;
-  --color-button-header-text: #ffffff;
+  --color-button-header-bg-hover: #fff;
+  --color-button-header-text: #fff;
   --color-button-header-text-hover: #2a2a2a;
-  --color-button-header-border: #ffffff;
+  --color-button-header-border: #fff;
 
   /* サイドバー */
   --color-sidebar-bg: #1a1a1a;
-  --color-sidebar-bg-hover: #555555;
-  --color-sidebar-text: #ffffff;
-  --color-overlay: rgba(0, 0, 0, 0.5);
+  --color-sidebar-bg-hover: #555;
+  --color-sidebar-text: #fff;
 
   /* ホーム */
   --color-breadcrumb-bg: #cacaca;
   --color-breadcrumb-bg-hover: #eaeaea;
-  --color-breadcrumb-text: #000000;
-  --color-button-message-bg: #ffffff;
+  --color-breadcrumb-text: #000;
+  --color-button-message-bg: #fff;
   --color-button-message-bg-hover: #eee;
-  --color-button-message-text: #000000;
+  --color-button-message-text: #000;
   --color-department-card-bg: #eaeaea;
   --color-department-card-bg-hover: #cacaca;
-  --color-department-card-text: #000000;
+  --color-department-card-text: #000;
 
   /* メッセージ */
   --color-message-body-bg: #f8f9fa;
@@ -101,8 +103,8 @@
   --color-message-body-text: #212529;
   --color-button-option: #adb5bd;
   --color-button-option-hover: #dc3545;
-  --color-dialog-bg: #ffffff;
-  --color-dialog-text: #000000;
+  --color-dialog-bg: #fff;
+  --color-dialog-text: #000;
 
   /* プロフィール */
   --color-message-profile-bg: #eaeaea;
@@ -113,31 +115,108 @@
   --color-toast-text: #fff;
 
   /* エラーページ */
+  --color-text-status: #2a2a2a;
   --color-text-error-title: #333;
   --color-text-error-subtitle: #666;
 
   /* 共通 */
-  --color-bg: #ffffff;
-  --color-text: #000000;
+  --color-bg: #fff;
+  --color-text: #000;
   --color-text-error: #ff0000;
   --color-button-confirm: #2a2a2a;
   --color-button-confirm-hover: #1a1a1a;
-  --color-button-confirm-text: #ffffff;
+  --color-button-confirm-text: #fff;
   --color-button-delete: #e74c3c;
   --color-button-delete-hover: #c0392b;
-  --color-button-delete-text: #ffffff;
+  --color-button-delete-text: #fff;
   --color-button-cancel: #bdc3c7;
   --color-button-cancel-hover: #c0c0c0;
-  --color-button-cancel-text: #000000;
-  --color-list-bg: #ffffff;
-  --color-list-text: #000000;
+  --color-button-cancel-text: #000;
+  --color-button-border: none;
+  --color-list-bg: #fff;
+  --color-list-text: #000;
   --color-list-header: #f0f0f0;
   --color-list-label: #555;
   --color-list-value: #111;
+  --color-input-bg: #fff;
+  --color-input-text: #000;
+}
+
+:root[themeColor="black"] {
+  /* ヘッダー */
+  --color-header-bg: #111;
+  --color-header-text: #fff;
+  --color-button-header-bg: #111;
+  --color-button-header-bg-hover: #fff;
+  --color-button-header-text: #fff;
+  --color-button-header-text-hover: #111;
+  --color-button-header-border: #fff;
+
+  /* サイドバー */
+  --color-sidebar-bg: #1a1a1a;
+  --color-sidebar-bg-hover: #444;
+  --color-sidebar-text: #fff;
+
+  /* ホーム */
+  --color-breadcrumb-bg: #333;
+  --color-breadcrumb-bg-hover: #444;
+  --color-breadcrumb-text: #fff;
+  --color-button-message-bg: #000;
+  --color-button-message-bg-hover: #333;
+  --color-button-message-text: #fff;
+  --color-department-card-bg: #222;
+  --color-department-card-bg-hover: #333;
+  --color-department-card-text: #fff;
+
+  /* メッセージ */
+  --color-message-body-bg: #222;
+  --color-message-body-name: #fff;
+  --color-message-body-header: #ccc;
+  --color-message-body-text: #fff;
+  --color-button-send-border: #555;
+  --color-button-option: #fff;
+  --color-button-option-hover: #ff0000;
+  --color-dialog-bg: #222;
+  --color-dialog-text: #fff;
+
+  /* プロフィール */
+  --color-message-profile-bg: #222;
+  --color-message-profile-text: #fff;
+
+  /* 設定 */
+  --color-toast-bg: #222;
+  --color-toast-text: #fff;
+
+  /* エラーページ */
+  --color-text-status: #fff;
+  --color-text-error-title: #ddd;
+  --color-text-error-subtitle: #aaa;
+
+  /* 共通 */
+  --color-bg: #000;
+  --color-text: #fff;
+  --color-text-error: #e74c3c;
+  --color-button-confirm: #000;
+  --color-button-confirm-hover: #111;
+  --color-button-confirm-text: #fff;
+  --color-button-delete: #e74c3c;
+  --color-button-delete-hover: #c0392b;
+  --color-button-delete-text: #fff;
+  --color-button-cancel: #bdc3c7;
+  --color-button-cancel-hover: #c0c0c0;
+  --color-button-cancel-text: #000;
+  --color-button-border: #555;
+  --color-list-bg: #222;
+  --color-list-text: #fff;
+  --color-list-header: #333;
+  --color-list-label: #fff;
+  --color-list-value: #fff;
+  --color-input-bg: #222;
+  --color-input-text: #fff;
 }
 
 /* 共通 */
-.body {
+body {
   background-color: var(--color-bg);
   color: var(--color-text);
 }
@@ -182,7 +261,7 @@ header {
 }
 
 .overlay {
-  background-color: var(--color-overlay);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 /* ホーム */
@@ -243,11 +322,12 @@ header {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
-.message-header-left {
+.message-name {
   color: var(--color-message-body-name);
 }
 
-.message-department .message-header-right {
+.message-department,
+.message-header-right {
   color: var(--color-message-body-header);
 }
 
@@ -256,6 +336,8 @@ header {
 }
 
 .edit-textarea {
+  background-color: var(--color-input-bg);
+  color: var(--color-input-text);
   border: 1px solid #dee2e6;
 }
 
@@ -293,17 +375,15 @@ header {
 }
 
 .message-form textarea {
+  background-color: var(--color-input-bg);
+  color: var(--color-input-text);
   border: 1px solid #dee2e6;
-}
-
-.message-form textarea:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
 }
 
 .message-form button {
   background-color: var(--color-button-confirm);
   color: var(--color-button-confirm-text);
+  border: var(--color-button-border) solid 1px;
 }
 
 .message-form button:hover {
@@ -363,6 +443,8 @@ header {
 }
 
 .profile-item input {
+  background-color: var(--color-input-bg);
+  color: var(--color-input-text);
   border: 1px solid #ccc;
 }
 
@@ -373,6 +455,12 @@ header {
 
 .profile-btn:hover {
   background-color: var(--color-button-confirm-hover);
+}
+
+.profile-back-btn {
+  background-color: var(--color-button-confirm);
+  color: var(--color-button-confirm-text);
+  border: var(--color-button-border) solid 1px;
 }
 
 .error-message {
@@ -437,7 +525,7 @@ header {
 
 /* エラーページ */
 .error-status {
-  color: var(--color-header-bg);
+  color: var(--color-header-status);
 }
 
 .error-title {
@@ -451,6 +539,7 @@ header {
 .home-btn {
   background-color: var(--color-button-confirm);
   color: var(--color-button-confirm-text);
+  border: var(--color-button-border) solid 1px;
 }
 
 .home-btn:hover {

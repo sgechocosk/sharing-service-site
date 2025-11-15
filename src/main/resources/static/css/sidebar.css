@@ -95,25 +95,3 @@
   opacity: 1;
   visibility: visible;
 }
-
-/* 以下のデフォルトカラーは色設定変更完了後に削除する */
-.sidebar {
-  background-color: #000c1d;
-  color: white;
-}
-
-.toggle-btn {
-  color: white;
-}
-
-.sidebar a {
-  color: white;
-}
-
-.sidebar a:hover {
-  background-color: #5a6168;
-}
-
-.overlay {
-  background-color: rgba(0, 0, 0, 0.5);
-}

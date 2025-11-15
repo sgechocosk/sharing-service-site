@@ -43,7 +43,8 @@
   margin: 1rem;
 }
 
-.profile-btn {
+.profile-btn,
+.profile-back-btn {
   padding: 0.6rem 1.2rem;
   border: none;
   border-radius: 6px;
@@ -54,11 +55,13 @@
   white-space: nowrap;
 }
 
-.profile-btn:hover {
+.profile-btn:hover,
+.profile-back-btn:hover {
   transform: translateY(-2px);
 }
 
-.profile-btn:active {
+.profile-btn:active,
+.profile-back-btn:active {
   transform: translateY(0);
 }
 
@@ -67,45 +70,4 @@
   margin: -0.75rem 0 4px;
   display: block;
   text-align: right;
-}
-
-/* 以下のデフォルトカラーは色設定変更完了後に削除する */
-.main-content h2 {
-  background-color: #f0f8ff;
-  color: #007bff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-
-.profile-card {
-  background-color: white;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.profile-item {
-  border-bottom: 1px solid #e0e0e0;
-}
-
-.profile-label {
-  color: #555;
-}
-
-.value {
-  color: #111;
-}
-
-.profile-item input {
-  border: 1px solid #ccc;
-}
-
-.profile-btn {
-  background-color: #007bff;
-  color: white;
-}
-
-.profile-btn:hover {
-  background-color: #0056b3;
-}
-
-.error-message {
-  color: red;
 }
