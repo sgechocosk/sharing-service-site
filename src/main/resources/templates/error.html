@@ -14,6 +14,7 @@
       <h1 class="error-status" th:text="${status}">エラーコード</h1>
 
       <h2 class="error-title" th:switch="${status}">
+        <span th:case="403">アクセスが拒否されました。</span>
         <span th:case="404">ページが見つかりませんでした。</span>
         <span th:case="500">サーバーエラーが発生しました。</span>
         <span th:case="*">エラーが発生しました。</span>

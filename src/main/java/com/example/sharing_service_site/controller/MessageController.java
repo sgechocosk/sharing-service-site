@@ -50,7 +50,7 @@ public class MessageController {
     model.addAttribute("user", user);
 
     String departmentName = departmentService.getDepartmentNameById(departmentId);
-    List<Message> messages = messageService.getMessagesByDepartmentId(departmentId);
+    List<Message> messages = messageService.getMessagesByDepartmentId(userDetails.getCompany().getCompanyId(), departmentId);
     model.addAttribute("selectedDepartmentName", departmentName);
     model.addAttribute("messages", messages);
 
@@ -69,7 +69,7 @@ public class MessageController {
     model.addAttribute("roleName", userDetails.getRoleName());
 
     String departmentName = departmentService.getDepartmentNameById(departmentId);
-    List<Message> messages = messageService.getMessagesByDepartmentId(departmentId);
+    List<Message> messages = messageService.getMessagesByDepartmentId(userDetails.getCompany().getCompanyId(), departmentId);
     model.addAttribute("selectedDepartmentName", departmentName);
     model.addAttribute("messages", messages);
 

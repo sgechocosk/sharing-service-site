@@ -1,8 +1,10 @@
 package com.example.sharing_service_site.service;
 
 import java.util.List;
+import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.stereotype.Service;
 
 import com.example.sharing_service_site.entity.Department;
@@ -19,13 +21,22 @@ public class MessageService {
   @Autowired
   private DepartmentRepository departmentRepository;
 
+  @Autowired
+  private DepartmentService departmentService;
+
   /**
    * 部署IDを基にメッセージを取得する
+   * ----------companyIdが一致しているかのチェックを追加----------
    * 
    * @param departmentId 部署ID
    * @return 該当するメッセージ一覧
    */
-  public List<Message> getMessagesByDepartmentId(Long departmentId) {
+  public List<Message> getMessagesByDepartmentId(Long userCompanyId, Long departmentId) {
+    Long departmentCompanyId = departmentService.getCompanyIdById(departmentId);
+
+    if (!Objects.equals(userCompanyId, departmentCompanyId)) {
+        throw new AccessDeniedException("Access denied to this department");
+    }
     return messageRepository.findByDepartmentDepartmentIdOrderByCreatedAtAsc(departmentId);
   }
 
