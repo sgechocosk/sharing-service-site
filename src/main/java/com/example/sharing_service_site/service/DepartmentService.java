@@ -55,4 +55,17 @@ public class DepartmentService {
         .map(Department::getDepartmentName)
         .orElse(null);
   }
+
+  /**
+   * 部署IDを指定して、その部署の会社IDを取得する
+   * 
+   * @param departmentId 部署ID
+   * @return 会社ID（部署が見つからない場合はnullを返す）
+   */
+  public Long getCompanyIdById(Long departmentId) {
+    return departmentRepository.findById(departmentId)
+        .map(Department::getCompanyId) // 以下のように取得したいがDepartmentエンティティにgetCompany()を追加すると部署が適切に表示されないためgetCompanyId()で対応
+        // .map(dept -> dept.getCompany().getCompanyId())
+        .orElse(null);
+  }
 }
