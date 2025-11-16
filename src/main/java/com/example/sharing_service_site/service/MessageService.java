@@ -3,7 +3,6 @@ package com.example.sharing_service_site.service;
 import java.util.List;
 import java.util.Objects;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.stereotype.Service;
 
@@ -15,14 +14,18 @@ import com.example.sharing_service_site.repository.MessageRepository;
 
 @Service
 public class MessageService {
-  @Autowired
-  private MessageRepository messageRepository;
 
-  @Autowired
-  private DepartmentRepository departmentRepository;
+  private final MessageRepository messageRepository;
+  private final DepartmentRepository departmentRepository;
+  private final DepartmentService departmentService;
 
-  @Autowired
-  private DepartmentService departmentService;
+  public MessageService(MessageRepository messageRepository,
+                        DepartmentRepository departmentRepository,
+                        DepartmentService departmentService) {
+    this.messageRepository = messageRepository;
+    this.departmentRepository = departmentRepository;
+    this.departmentService = departmentService;
+  }
 
   /**
    * 部署IDを基にメッセージを取得する

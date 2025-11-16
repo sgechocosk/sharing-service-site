@@ -3,7 +3,6 @@ package com.example.sharing_service_site.service;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.sharing_service_site.entity.Company;
@@ -13,8 +12,11 @@ import com.example.sharing_service_site.repository.DepartmentRepository;
 @Service
 public class DepartmentService {
 
-  @Autowired
-  private DepartmentRepository departmentRepository;
+  private final DepartmentRepository departmentRepository;
+
+  public DepartmentService(DepartmentRepository departmentRepository) {
+    this.departmentRepository = departmentRepository;
+  }
 
   /**
    * 会社名を指定して、ルート部署（親がnullの部署）を取得する
