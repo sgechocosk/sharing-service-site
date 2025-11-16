@@ -42,6 +42,7 @@ public class Department {
 
   public Long getDepartmentId() { return departmentId; }
   public String getDepartmentName() { return departmentName; }
+  public Long getCompanyId() { return company.getCompanyId(); } // 直接取得は理にかなっていないので削除したいが以下のメソッドを利用できないので使用
   // public Company getCompany() { return company; } // 追加すると部署が適切に表示されない
   public Department getParent() { return parent; }
   // public List<Department> getChildren() { return children; } // 追加すると部署が適切に表示されない
