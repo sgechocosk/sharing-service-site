@@ -1,6 +1,5 @@
 package com.example.sharing_service_site.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.sharing_service_site.entity.Settings;
@@ -8,8 +7,12 @@ import com.example.sharing_service_site.repository.SettingsRepository;
 
 @Service
 public class SettingsService {
-  @Autowired
-  private SettingsRepository settingsRepository;
+
+  private final SettingsRepository settingsRepository;
+
+  public SettingsService(SettingsRepository settingsRepository) {
+    this.settingsRepository = settingsRepository;
+  }
   
   /**
    * ユーザーIDを基に設定情報を取得する
