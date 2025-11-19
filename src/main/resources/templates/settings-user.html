@@ -67,11 +67,19 @@
             ></span>
           </div>
         </div>
-        <div class="register-actions" sec:authorize="hasRole('ADMIN')">
-          <a class="register-btn" th:href="@{/settings/user/register}">
-            ユーザー登録 <!-- "フォームにして画面を被せる？" -->
-          </a>
-        </div>
+        <form
+          class="register-form"
+          sec:authorize="hasRole('ADMIN')"
+          th:action="@{/settings/user/register}"
+          method="post"
+        >
+          <input
+            type="hidden"
+            th:name="${_csrf.parameterName}"
+            th:value="${_csrf.token}"
+          />
+          <button class="register-btn" type="submit">新規ユーザー登録</button>
+        </form>
 
         <div
           class="toast"
