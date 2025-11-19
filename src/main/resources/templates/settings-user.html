@@ -67,6 +67,11 @@
             ></span>
           </div>
         </div>
+        <div class="register-actions" sec:authorize="hasRole('ADMIN')">
+          <a class="register-btn" th:href="@{/settings/user/register}">
+            ユーザー登録 <!-- "フォームにして画面を被せる？" -->
+          </a>
+        </div>
 
         <div
           class="toast"

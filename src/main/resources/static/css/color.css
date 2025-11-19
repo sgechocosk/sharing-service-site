@@ -517,6 +517,16 @@ header {
   background-color: var(--color-button-confirm-hover);
 }
 
+.register-btn {
+  background-color: var(--color-button-confirm);
+  color: var(--color-button-confirm-text);
+  border: var(--color-button-border) solid 1px;
+}
+
+.register-btn:hover {
+  background-color: var(--color-button-confirm-hover);
+}
+
 .toast {
   background-color: var(--color-toast-bg);
   color: var(--color-toast-text);

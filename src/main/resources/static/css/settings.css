@@ -49,7 +49,7 @@
 .user-container {
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
+  margin: 0 auto 10px;
   gap: 10px;
 }
 
@@ -89,6 +89,28 @@
   cursor: pointer;
   font-size: 0.9rem;
   transition: background-color 0.2s ease;
+}
+
+.register-btn {
+  display: flex;
+  width: fit-content;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  white-space: nowrap;
+  justify-content: center;
+  margin-left: auto;
+}
+
+.register-btn:hover {
+  transform: translateY(-2px);
+}
+
+.register-btn:active {
+  transform: translateY(0);
 }
 
 .toast {
