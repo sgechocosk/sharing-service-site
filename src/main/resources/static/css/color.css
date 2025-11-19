@@ -527,6 +527,16 @@ header {
   background-color: var(--color-button-confirm-hover);
 }
 
+/* ===== 新規ユーザー登録ダイアログ ===== */
+.register-box {
+  background-color: var(--color-dialog-bg); /* ===== 共通化していないパラメータ ===== */
+  color: var(--color-dialog-text); /* ===== 共通化していないパラメータ ===== */
+}
+
+.register-dialog {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
 .toast {
   background-color: var(--color-toast-bg);
   color: var(--color-toast-text);

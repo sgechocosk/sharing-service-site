@@ -70,4 +70,16 @@ public class SettingsController {
     }
     return "redirect:/settings/user";
   }
+
+  @PostMapping("/settings/user/register")
+  public String regsterUser(@RequestParam String userName,
+                            @RequestParam String departmentName,
+                            RedirectAttributes redirectAttributes) {
+    try {
+      // ここに処理を記述する
+    } catch (IllegalArgumentException ex) {
+      redirectAttributes.addFlashAttribute("error", ex.getMessage());
+    }
+    return "redirect:/settings/user";
+  }
 }

@@ -81,6 +81,33 @@
           <button class="register-btn" type="submit">新規ユーザー登録</button>
         </form>
 
+        <div class="register-dialog hidden" id="registerDialog">
+          <div class="register-box">
+            <h2>新規ユーザー登録</h2>
+
+            <form id="registerDialogForm">
+              <div class="input-group">
+                <label>ユーザー名</label>
+                <input type="text" id="dialogUserName" required />
+              </div>
+
+              <div class="input-group">
+                <label>所属部署</label>
+                <input type="text" id="dialogDepartment" required />
+              </div>
+            </form>
+
+            <div class="register-buttons">
+              <button class="register-btn confirm" id="confirmRegister">
+                登録する
+              </button>
+              <button class="register-btn cancel" id="cancelRegister">
+                キャンセル
+              </button>
+            </div>
+          </div>
+        </div>
+
         <div
           class="toast"
           id="toast"
